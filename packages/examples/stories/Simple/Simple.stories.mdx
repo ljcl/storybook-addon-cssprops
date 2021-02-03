@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import SimpleStories from "./Simple.stories";
+
+<Meta title="Simple Component/MDX" />
+
+# Simple Component Example
+
+## MDX
+
+Importing `CssPropsBlock` and configuring directly in MDX.
+
+```tsx
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+```
+
+<CssPropsBlock
+  customProperties={{
+    ...SimpleStories.parameters.cssprops,
+    "css-custom-property-1": {
+      value: "orange",
+      description: "Defined in an MDX file!",
+    },
+  }}
+/>
+
+<Canvas>
+  <Story id="simple-component-csf--default-story" />
+</Canvas>
+
+<Canvas>
+  <Story id="simple-component-csf--secondary-story" />
+</Canvas>

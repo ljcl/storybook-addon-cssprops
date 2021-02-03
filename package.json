@@ -1,0 +1,20 @@
+{
+  "name": "root",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ljcl/storybook-addon-cssprops",
+  "repository": "https://github.com/ljcl/storybook-addon-cssprops.git",
+  "author": "Luke Clark <luke@lukeclark.com.au>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "build": "npm run --prefix packages/storybook-addon-cssprops build",
+    "dev": "concurrently \"npm run --prefix packages/storybook-addon-cssprops dev\" \"npm run --prefix packages/examples storybook\""
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "@ljcl/storybook-addon-cssprops",
+  "version": "0.1.0",
+  "description": "Interact with css custom properties dynamically in the Storybook UI",
+  "keywords": [
+    "addon",
+    "storybook",
+    "css",
+    "custom properties",
+    "properties"
+  ],
+  "homepage": "https://github.com/ljcl/storybook-addon-cssprops/tree/main/packages/storybook-addon-cssprops",
+  "repository": "https://github.com/ljcl/storybook-addon-cssprops.git",
+  "author": "Luke Clark <luke@lukeclark.com.au>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "assets/**/*",
+    "dist/**/*",
+    "README.md",
+    "*.js",
+    "*.d.ts"
+  ],
+  "devDependencies": {
+    "@storybook/api": "^6.1.16",
+    "@storybook/client-api": "^6.1.16",
+    "@storybook/node-logger": "^6.1.16",
+    "@types/node": "^14.14.22",
+    "@types/react": "^16.8.8",
+    "polish": "^0.2.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "@storybook/addon-docs": "^6.1.16",
+    "@storybook/addons": "^6.0.0",
+    "@storybook/components": "^6.0.0",
+    "@storybook/theming": "^6.0.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && cp ../../README.md ./ && cp -r ../../assets ./ && npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  }
+}

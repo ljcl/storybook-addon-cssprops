@@ -1,0 +1,29 @@
+{
+  "name": "examples",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.4.2",
+    "@ljcl/storybook-addon-cssprops": "^0.1.0",
+    "@storybook/addon-actions": "^6.1.16",
+    "@storybook/addon-docs": "^6.1.16",
+    "@storybook/addon-links": "^6.1.16",
+    "@storybook/addon-storysource": "^6.1.16",
+    "@storybook/addons": "^6.1.16",
+    "@storybook/react": "^6.1.16",
+    "@storybook/theming": "^6.1.16",
+    "babel-loader": "^8.0.5",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "ts-loader": "^7.0.5"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
