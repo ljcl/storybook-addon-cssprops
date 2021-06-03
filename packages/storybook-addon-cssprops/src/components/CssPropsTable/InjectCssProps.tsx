@@ -11,6 +11,7 @@ function o2s(style: React.CSSProperties) {
 }
 
 export const useInjectCustomProperties = (customProperties: CssPropTypes) => {
+  // this should respect css selectors ("scopes")
   const styles = Object.keys(customProperties)
     .filter((i) => customProperties[i].value)
     .reduce(
@@ -33,6 +34,7 @@ export const useInjectCustomProperties = (customProperties: CssPropTypes) => {
 
   React.useLayoutEffect(() => {
     const stringifiedStyles = o2s(styles);
+    console.log('generated styles', styles, stringifiedStyles);
     previewRef?.current?.body.setAttribute("style", stringifiedStyles);
   }, [customProperties]);
 };

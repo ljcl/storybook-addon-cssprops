@@ -1,7 +1,7 @@
 import { addons } from "@storybook/addons";
 import { create } from "@storybook/theming";
 
-import pkg from "@ljcl/storybook-addon-cssprops/package.json";
+import pkg from "@kickstartds/storybook-addon-cssprops/package.json";
 
 addons.setConfig({
   theme: create({

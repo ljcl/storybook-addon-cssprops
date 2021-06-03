@@ -3,5 +3,5 @@ module.exports = {
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.{js,jsx,ts,tsx}",
   ],
-  addons: ["@ljcl/storybook-addon-cssprops", "@storybook/addon-docs"],
+  addons: ["@kickstartds/storybook-addon-cssprops", "@storybook/addon-docs"],
 };

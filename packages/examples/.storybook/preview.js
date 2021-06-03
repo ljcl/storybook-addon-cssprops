@@ -10,7 +10,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs/blocks";
-import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import { CssPropsBlock } from "@kickstartds/storybook-addon-cssprops";
 
 addParameters({
   docs: {
