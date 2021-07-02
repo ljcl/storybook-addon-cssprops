@@ -20,7 +20,7 @@ import { CssPropsBlock } from "@kickstartds/storybook-addon-component-tokens";
 
 ## Usage
 
-Include your component tokens without the intial `--` prefix, the addon will apply and document this automatically.
+Include your component tokens, the addon will apply and document this automatically.
 
 ```jsx
 export default {
@@ -50,14 +50,13 @@ This monorepo uses yarn workspaces, run `yarn` at the root.
 
 ### TODO
 
-[] Auto detect input type.  
 [] Look for the args of a defined component when in MDX  
-[] Configurable per story localstorage.  
+[] Configurable per story sessionstorage.  
 [] Better specificity when injecting styles (with & without iframes)
 [] Functioning reset button.
 
 ## Credits
 
-Based on [storybook-addon-cssprops](https://github.com/ljcl/storybook-addon-cssprops) from Luke Clark.
+Based on [storybook-addon-cssprops](https://github.com/ljcl/storybook-addon-cssprops) from Luke Clark ([@ljcl](https://github.com/ljcl)).
 
 Portions of this package are sourced from the storybook source code in order to maintain look and feel.
