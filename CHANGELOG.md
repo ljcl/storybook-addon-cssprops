@@ -1,5 +1,18 @@
 # (Fri Jul 02 2021)
 
+#### 🐛 Bug Fix
+
+- `@kickstartds/storybook-addon-component-tokens@0.1.2`
+  - Hotfix/compact mode [#1](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/1) ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
+# (Fri Jul 02 2021)
+
 #### ⚠️ Pushed to `main`
 
 - ci: fix release ([@lmestel](https://github.com/lmestel))
