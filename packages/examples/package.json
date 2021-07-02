@@ -3,28 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.4.2",
-    "@kickstartds/base": "^1.0.0-alpha.22",
-    "@kickstartds/content": "^1.0.0-alpha.24",
-    "@kickstartds/core": "^1.0.0-alpha.15",
-    "@kickstartds/form": "^1.0.0-alpha.2",
-    "@kickstartds/storybook-addon-cssprops": "^0.1.0",
-    "@storybook/addon-actions": "^6.3.0-beta.4",
-    "@storybook/addon-docs": "^6.3.0-beta.4",
-    "@storybook/addon-links": "^6.3.0-beta.4",
-    "@storybook/addon-storysource": "^6.3.0-beta.4",
-    "@storybook/addons": "^6.3.0-beta.4",
-    "@storybook/react": "^6.3.0-beta.4",
-    "@storybook/theming": "^6.3.0-beta.4",
-    "babel-loader": "^8.0.5",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "ts-loader": "^7.0.5"
+    "@kickstartds/storybook-addon-component-tokens": "^0.1.0",
+    "@storybook/addon-controls": "^6.3.2",
+    "@storybook/addon-docs": "^6.3.2",
+    "@storybook/addons": "^6.3.2",
+    "@storybook/react": "^6.3.2",
+    "@storybook/theming": "^6.3.2"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",

@@ -9,8 +9,8 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from "@storybook/addon-docs/blocks";
-import { CssPropsBlock } from "@kickstartds/storybook-addon-cssprops";
+} from "@storybook/addon-docs";
+import { CssPropsBlock } from "@kickstartds/storybook-addon-component-tokens";
 
 addParameters({
   docs: {
@@ -33,21 +33,5 @@ addParameters({
   },
   options: {
     showRoots: true,
-  },
-  cssprops: {
-    presetColors: [
-      "#fdc808",
-      "#6565e7",
-      "#00d0ff",
-      "#0059cc",
-      "#2ebdba",
-      "#008582",
-      "#ed1d53",
-      "#e7134b",
-      "#ef4034",
-      "#e03124",
-      "#007bc2",
-      "#e9f500",
-    ],
   },
 });

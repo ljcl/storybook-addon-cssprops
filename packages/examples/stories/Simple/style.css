@@ -1,0 +1,21 @@
+@charset "UTF-8";
+:root {
+  --color-primary: #ff017d;
+}
+
+[data-lang="us"] {
+  --amount-suffix-content: "$";
+}
+
+@media (min-width: 960px) {
+  :root {
+    --color-primary: blue;
+  }
+}
+
+.foo {
+  --color-primary: gold;
+  color: var(--color-primary);
+  display: flex;
+  justify-content: space-around;
+}

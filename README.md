@@ -1,50 +1,42 @@
-# Storybook CSS Custom Properties Addon
-
-<p align="center">
-  <img width="800" src="./assets/example.jpg">
-</p>
+# Storybook Component Tokens Addon
 
 ```sh
-npm i -D @ljcl/storybook-addon-cssprops
+npm i -D @kickstartds/storybook-addon-component-tokens
 ```
 
 Enable the addon in [`.storybook/main.js`](https://storybook.js.org/docs/react/configure/overview#configure-your-storybook-project):
 
 ```js
 module.exports = {
-  addons: ["@ljcl/storybook-addon-cssprops"],
+  addons: ["@kickstartds/storybook-addon-component-tokens"],
 };
 ```
 
 To use it inside MDX, or when customising the docs page:
 
 ```js
-import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import { CssPropsBlock } from "@kickstartds/storybook-addon-component-tokens";
 ```
 
 ## Usage
 
-Include your CSS Custom Properties without the intial `--` prefix, the addon will apply and document this automatically.
+Include your component tokens without the intial `--` prefix, the addon will apply and document this automatically.
 
 ```jsx
 export default {
   title: "Simple Component",
   parameters: {
     cssprops: {
-      "css-custom-property-1": {
-        value: "hsl(120deg 100% 25% / 49%)",
-        description: "Optional description",
-      },
+      "--color-primary": [
+        {
+          value: "#ff017d",
+          selector: ":root"
+        }
+      ]
     }
   },
 } as Meta;
 ```
-
-Controls default to colour, but can be switched to text by adding `cssprops.myparam.control: 'text'`.
-
-Disable the picker with `cssprops.disable: true`
-
-Customise preset colours for the colourpicker with `cssprops.presetColors: ['#FFF']`.
 
 ### Adding to DocsPage and MDX
 
@@ -54,7 +46,7 @@ Modify the docs page based by [following the storybook docs](https://storybook.j
 
 ## Development
 
-This monorepo uses npm@7 workspaces, run `npm i` at the root.
+This monorepo uses yarn workspaces, run `yarn` at the root.
 
 ### TODO
 
@@ -65,5 +57,7 @@ This monorepo uses npm@7 workspaces, run `npm i` at the root.
 [] Functioning reset button.
 
 ## Credits
+
+Based on [storybook-addon-cssprops](https://github.com/ljcl/storybook-addon-cssprops) from Luke Clark.
 
 Portions of this package are sourced from the storybook source code in order to maintain look and feel.

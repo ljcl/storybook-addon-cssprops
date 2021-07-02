@@ -1,12 +1,12 @@
 import { useParameter } from "@storybook/api";
 import { PARAM_KEY } from "./constants";
-import { CssPropTypes } from "./components/CssPropsTable/types";
+import { FullExtractResult } from "custom-property-extract/dist/types";
 
 export function getTitle(): string {
-  const cssprops = useParameter<CssPropTypes>(PARAM_KEY, {});
+  const cssprops = useParameter<FullExtractResult>(PARAM_KEY, {});
   const controlsCount = Object.values(cssprops).filter(
-    (cssprop) => cssprop?.value
+    (cssprop) => cssprop.length
   ).length;
   const suffix = controlsCount === 0 ? "" : ` (${controlsCount})`;
-  return `CSS Custom Properties${suffix}`;
+  return `Component Tokens${suffix}`;
 }

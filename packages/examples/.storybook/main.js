@@ -3,5 +3,9 @@ module.exports = {
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.{js,jsx,ts,tsx}",
   ],
-  addons: ["@kickstartds/storybook-addon-cssprops", "@storybook/addon-docs"],
+  addons: [
+    "@kickstartds/storybook-addon-component-tokens",
+    "@storybook/addon-docs",
+    "@storybook/addon-controls",
+  ],
 };

@@ -1,5 +1,5 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import { CssPropsBlock } from "@kickstartds/storybook-addon-cssprops";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { CssPropsBlock } from "@kickstartds/storybook-addon-component-tokens";
 import SimpleStories from "./Simple.stories";
 
 <Meta title="Simple Component/MDX" />
@@ -11,18 +11,8 @@ import SimpleStories from "./Simple.stories";
 Importing `CssPropsBlock` and configuring directly in MDX.
 
 ```tsx
-import { CssPropsBlock } from "@kickstartds/storybook-addon-cssprops";
+import { CssPropsBlock } from "@kickstartds/storybook-addon-component-tokens";
 ```
-
-<CssPropsBlock
-  customProperties={{
-    ...SimpleStories.parameters.cssprops,
-    "css-custom-property-1": {
-      value: "orange",
-      description: "Defined in an MDX file!",
-    },
-  }}
-/>
 
 <Canvas>
   <Story id="simple-component-csf--default-story" />
