@@ -13,7 +13,7 @@ export const CssPropsPanel: React.FC = () => {
   const cssprops = useParameter<FullExtractResult>(PARAM_KEY, {});
 
   return hasEntries(cssprops) ? (
-    <CssPropsTable customProperties={cssprops} inAddonPanel />
+    <CssPropsTable customProperties={cssprops} inAddonPanel={true} />
   ) : (
     <NoCustomPropertiesWarning />
   );

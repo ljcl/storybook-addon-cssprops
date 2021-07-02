@@ -81,7 +81,7 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
       {argsKeys.length ? (
         <ArgsTable
           inAddonPanel={inAddonPanel}
-          compact={false}
+          compact={true}
           updateArgs={updateArgs}
           resetArgs={resetArgs}
           rows={rows}
