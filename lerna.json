@@ -1,0 +1,13 @@
+{
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "no-private": true
+    },
+    "publish": {
+      "verifyAccess": false
+    }
+  }
+}

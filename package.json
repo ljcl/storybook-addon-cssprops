@@ -7,7 +7,11 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@auto-it/npm": "^10.29.3",
+    "@auto-it/released": "^10.29.3",
+    "auto": "^10.29.3",
     "concurrently": "^6.2.0",
+    "lerna": "^4.0.0",
     "prettier": "^2.3.2"
   },
   "scripts": {
