@@ -1,8 +1,5 @@
 {
+  "extends": "@kickstartds",
   "author": "Jonas Ulrich <jonas.ulrich@ruhmesmeile.com>",
-  "baseBranch": "main",
-  "plugins": [
-    "npm",
-    "released"
-  ]
+  "baseBranch": "main"
 }

@@ -7,8 +7,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@auto-it/npm": "^10.29.3",
-    "@auto-it/released": "^10.29.3",
+    "@kickstartds/auto-config": "^1.0.1",
     "auto": "^10.29.3",
     "concurrently": "^6.2.0",
     "lerna": "^4.0.0",
