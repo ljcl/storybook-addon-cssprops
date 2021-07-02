@@ -18,5 +18,9 @@
     "build": "yarn workspace @kickstartds/storybook-addon-component-tokens build",
     "dev": "concurrently \"yarn workspace @kickstartds/storybook-addon-component-tokens dev\" \"yarn workspace examples storybook\"",
     "format": "prettier -w ."
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

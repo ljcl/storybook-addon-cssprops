@@ -1,6 +1,6 @@
 {
   "author": "Jonas Ulrich <jonas.ulrich@ruhmesmeile.com>",
-  "baseBranch": "master",
+  "baseBranch": "main",
   "plugins": [
     "npm",
     "released"
