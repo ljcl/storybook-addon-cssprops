@@ -32,6 +32,8 @@ addParameters({
     prepareForInline: (story) => story(),
   },
   options: {
-    showRoots: true,
+    sidebar: {
+      showRoots: true,
+    },
   },
 });

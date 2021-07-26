@@ -11,15 +11,10 @@ addons.register(ADDON_ID, (api: API) => {
     title: getTitle,
     type: types.PANEL,
     paramKey: PARAM_KEY,
-    render: ({ key, active }) => {
-      if (!active || !api.getCurrentStoryData()) {
-        return <>-</>;
-      }
-      return (
-        <AddonPanel key={key} active={!!active}>
-          <CssPropsPanel />
-        </AddonPanel>
-      );
-    },
+    render: ({ key, active }) => (
+      <AddonPanel key={key} active={!!active}>
+        <CssPropsPanel />
+      </AddonPanel>
+    ),
   });
 });

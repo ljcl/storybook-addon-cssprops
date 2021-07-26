@@ -8,11 +8,11 @@
   },
   "devDependencies": {
     "@kickstartds/storybook-addon-component-tokens": "^0.1.2",
-    "@storybook/addon-controls": "^6.3.2",
-    "@storybook/addon-docs": "^6.3.2",
-    "@storybook/addons": "^6.3.2",
-    "@storybook/react": "^6.3.2",
-    "@storybook/theming": "^6.3.2"
+    "@storybook/addon-controls": "^6.3.6",
+    "@storybook/addon-docs": "^6.3.6",
+    "@storybook/addons": "^6.3.6",
+    "@storybook/react": "^6.3.6",
+    "@storybook/theming": "^6.3.6"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
