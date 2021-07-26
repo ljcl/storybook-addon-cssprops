@@ -1,3 +1,21 @@
+# (Mon Jul 26 2021)
+
+#### 🐛 Bug Fix
+
+- build: use @kickstartds/auto-config preset [#2](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/2) ([@lmestel](https://github.com/lmestel))
+- `@kickstartds/storybook-addon-component-tokens@0.1.3`
+  - Hotfix/warning [#3](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/3) ([@lmestel](https://github.com/lmestel))
+
+#### ⚠️ Pushed to `main`
+
+- ci: update auto config ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Fri Jul 02 2021)
 
 #### 🐛 Bug Fix
