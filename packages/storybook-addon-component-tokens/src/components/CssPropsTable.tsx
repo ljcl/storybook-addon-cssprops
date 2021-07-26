@@ -24,10 +24,10 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
   customProperties = {},
   inAddonPanel,
 }) => {
-  const customPropertiesEntries = Object.entries(customProperties);
+  const customPropertiesJSON = JSON.stringify(customProperties);
   const { rows, initialArgs, argsKeys } = React.useMemo(
     () =>
-      customPropertiesEntries.reduce(
+      Object.entries(customProperties).reduce(
         (prev, [key, values]) => {
           values.forEach((item) => {
             if (!item.selector) return;
@@ -56,12 +56,20 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
           argsKeys: [] as string[],
         }
       ),
-    [customProperties]
+    [customPropertiesJSON]
   );
 
+  const [prevProps, setPrevProps] = React.useState(customPropertiesJSON);
   const [mergedArgs, setMergedArgs] = React.useState(
     mergeCustomPropertiesWithStorage(initialArgs)
   );
+
+  if (customPropertiesJSON !== prevProps) {
+    // update `mergedArgs` if customProperties changed
+    // @see https://github.com/facebook/react/issues/14738
+    setPrevProps(customPropertiesJSON);
+    setMergedArgs(mergeCustomPropertiesWithStorage(initialArgs));
+  }
 
   const resetArgs = () => {
     resetStorage(argsKeys);
