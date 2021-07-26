@@ -5,6 +5,7 @@ import {
   ArgsTable,
   ArgsTableRowProps,
   ArgTypes,
+  Placeholder,
 } from "@storybook/components";
 import { isValidColor, Args } from "./utils";
 import {
@@ -88,7 +89,7 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
           args={mergedArgs}
         />
       ) : (
-        "Bitte warten"
+        <Placeholder>Please wait</Placeholder>
       )}
     </ResetWrapper>
   );
