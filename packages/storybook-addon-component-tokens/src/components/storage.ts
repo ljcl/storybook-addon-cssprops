@@ -2,20 +2,21 @@ import { ADDON_ID } from "../constants";
 import { Args } from "./utils";
 
 const getSessionStorage = (key: string): Record<string, string | never> => {
-  try {
-    if (window.sessionStorage) {
+  if (window.sessionStorage) {
+    try {
       const sessionStorage = window.sessionStorage.getItem(key);
       if (sessionStorage) {
         const parsedStorage = JSON.parse(sessionStorage);
         return parsedStorage;
       }
+    } catch (e) {
+      console.warn(
+        "[storybook-addon-component-tokens]",
+        "Couldn't read sessionStorage",
+        e
+      );
       return {};
     }
-  } catch (e) {
-    console.warn(
-      "[storybook-addon-component-tokens]",
-      "Couldn't fetch sessionStorage"
-    );
   }
   return {};
 };
@@ -24,11 +25,18 @@ const setSessionStorage = (
   key: string,
   data: Record<string, unknown>
 ): void => {
-  try {
-    if (data && window.sessionStorage) {
-      window.sessionStorage.setItem(key, JSON.stringify(data));
+  if (window.sessionStorage) {
+    if (data) {
+      try {
+        window.sessionStorage.setItem(key, JSON.stringify(data));
+      } catch (e) {
+        console.warn(
+          "[storybook-addon-component-tokens]",
+          "Couldn't write to sessionStorage"
+        );
+      }
     }
-  } catch (e) {}
+  }
 };
 
 export const updateStorage = (cssProps: Args) => {
