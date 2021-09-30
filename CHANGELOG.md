@@ -1,3 +1,16 @@
+# (Thu Sep 30 2021)
+
+#### ⚠️ Pushed to `main`
+
+- `@kickstartds/storybook-addon-component-tokens@0.1.5`
+  - fix: dont't fail if sessionStorage is unavailable ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Mon Jul 26 2021)
 
 #### 🐛 Bug Fix

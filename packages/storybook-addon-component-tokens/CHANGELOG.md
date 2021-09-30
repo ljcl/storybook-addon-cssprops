@@ -1,3 +1,15 @@
+# v0.1.5 (Thu Sep 30 2021)
+
+#### ⚠️ Pushed to `main`
+
+- fix: dont't fail if sessionStorage is unavailable ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v0.1.4 (Mon Jul 26 2021)
 
 #### 🐛 Bug Fix
