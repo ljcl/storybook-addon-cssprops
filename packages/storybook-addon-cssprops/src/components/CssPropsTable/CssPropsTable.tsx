@@ -26,12 +26,6 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
   presetColors,
   inAddonPanel,
 }) => {
-  const hasCustomProperties =
-    Object.values(customProperties).filter((cssParam) => !!cssParam.value)
-      .length > 0;
-
-  if (!hasCustomProperties) return null;
-
   const [mergedCustomProperties, setMergedCustomProperties] = React.useState(
     mergeCustomPropertiesWithStorage(customProperties)
   );

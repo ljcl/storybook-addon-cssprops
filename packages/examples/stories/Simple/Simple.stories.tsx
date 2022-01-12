@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { Meta, Story } from "@storybook/react/types-6-0";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Swatch } from "../Swatch";
 
 const cssprops = {
@@ -28,33 +28,48 @@ export default {
   },
 } as Meta;
 
-const Swatches: Story = (args) => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-around",
-    }}
-  >
-    {Object.keys(cssprops)
-      .filter((cssprop) => cssprops[cssprop]?.control !== "text")
-      .map((cssprop) => (
-        <Swatch name={cssprop} key={cssprop} />
-      ))}
-  </div>
-);
+export const DefaultStory: StoryObj = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+      }}
+    >
+      {Object.keys(cssprops)
+        .filter((cssprop) => cssprops[cssprop]?.control !== "text")
+        .map((cssprop) => (
+          <Swatch name={cssprop} key={cssprop} />
+        ))}
+    </div>
+  ),
+};
 
-export const DefaultStory = Swatches.bind({});
-export const SecondaryStory = Swatches.bind({});
-
-SecondaryStory.parameters = {
-  cssprops: {
-    "story-only": {
-      value: "green",
-      description: "Not part of the default story parameters",
-    },
-    "css-custom-property-4": {
-      value: "pink",
-      description: "This story parameter overrides the parent",
+export const SecondaryStory: StoryObj = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+      }}
+    >
+      {Object.keys(cssprops)
+        .filter((cssprop) => cssprops[cssprop]?.control !== "text")
+        .map((cssprop) => (
+          <Swatch name={cssprop} key={cssprop} />
+        ))}
+    </div>
+  ),
+  parameters: {
+    cssprops: {
+      "story-only": {
+        value: "green",
+        description: "Not part of the default story parameters",
+      },
+      "css-custom-property-4": {
+        value: "pink",
+        description: "This story parameter overrides the parent",
+      },
     },
   },
 };
