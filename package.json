@@ -16,5 +16,8 @@
   "scripts": {
     "build": "npm run --prefix packages/storybook-addon-cssprops build",
     "dev": "concurrently \"npm run --prefix packages/storybook-addon-cssprops dev\" \"npm run --prefix packages/examples storybook\""
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.19.0"
   }
 }
