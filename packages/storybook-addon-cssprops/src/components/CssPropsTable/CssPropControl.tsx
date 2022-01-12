@@ -8,7 +8,7 @@ export interface CssPropControlProps {
   updateStorage: (cssProp: CssProps) => void;
 }
 
-const NoControl = () => <>-</>;
+const NoControl = () => <React.Fragment key="none">-</React.Fragment>;
 
 export const CssPropControl: React.FC<CssPropControlProps> = ({
   row,

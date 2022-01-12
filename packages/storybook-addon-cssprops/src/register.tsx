@@ -13,7 +13,7 @@ addons.register(ADDON_ID, (api: API) => {
     paramKey: PARAM_KEY,
     render: ({ key, active }) => {
       if (!active || !api.getCurrentStoryData()) {
-        return <>-</>;
+        return <React.Fragment key="nothing">-</React.Fragment>;
       }
       return (
         <AddonPanel key={key} active={!!active}>
