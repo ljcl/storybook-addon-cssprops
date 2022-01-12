@@ -17,6 +17,7 @@
   },
   "scripts": {
     "lint": "eslint packages",
+    "release": "npm run build && changeset publish",
     "build": "npm run --prefix packages/storybook-addon-cssprops build",
     "dev": "concurrently \"npm run --prefix packages/storybook-addon-cssprops dev\" \"npm run --prefix packages/examples storybook\""
   },
