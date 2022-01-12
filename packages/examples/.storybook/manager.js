@@ -8,4 +8,7 @@ addons.setConfig({
     brandTitle: "CSS Custom Properties Addon",
     brandUrl: pkg.homepage,
   }),
+  sidebar: {
+    showRoots: false,
+  },
 });

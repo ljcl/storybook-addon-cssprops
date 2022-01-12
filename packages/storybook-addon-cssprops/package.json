@@ -24,9 +24,9 @@
     "*.d.ts"
   ],
   "devDependencies": {
-    "@storybook/api": "^6.1.16",
-    "@storybook/client-api": "^6.1.16",
-    "@storybook/node-logger": "^6.1.16",
+    "@storybook/api": "^6.4.12",
+    "@storybook/client-api": "^6.4.12",
+    "@storybook/node-logger": "^6.4.12",
     "@types/node": "^14.14.22",
     "@types/react": "^16.8.8",
     "polish": "^0.2.3",

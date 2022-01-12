@@ -1,5 +1,4 @@
 import React from "react";
-import { addParameters } from "@storybook/react";
 import {
   DocsContainer,
   Title,
@@ -9,10 +8,10 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
-addParameters({
+export const parameters = {
   docs: {
     container: DocsContainer,
     page: () => {
@@ -31,9 +30,6 @@ addParameters({
     inlineStories: true,
     prepareForInline: (story) => story(),
   },
-  options: {
-    showRoots: true,
-  },
   cssprops: {
     presetColors: [
       "#fdc808",
@@ -50,4 +46,4 @@ addParameters({
       "#e9f500",
     ],
   },
-});
+};
