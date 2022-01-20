@@ -14,7 +14,7 @@ export const CssPropsPanel: React.FC = () => {
   const { presetColors, disable, ...customProperties } = cssprops;
 
   const hasCustomProperties =
-    Object.values(customProperties).filter((cssprop) => !!cssprop.value)
+    Object.values(customProperties)
       .length > 0;
 
   if (!hasCustomProperties) return <NoCustomPropertiesWarning />;
