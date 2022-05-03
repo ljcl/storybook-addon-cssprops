@@ -1,92 +1,227 @@
 import * as React from "react";
-import { Icons } from "@storybook/components";
-import { useInjectCustomProperties } from "./InjectCssProps";
-import { CssPropRow } from "./CssPropRow";
-import { CssPropTypes, CssProps } from "./types";
-import {
-  updateStorage,
-  resetStorage,
-  mergeCustomPropertiesWithStorage,
-} from "./utils";
-import { ResetWrapper } from "../typography/DocumentFormatting";
-import {
-  TableWrapper,
-  ResetButton,
-  CssPropsHeadingWrapper,
-} from "./CssPropsTableStyles";
+import { ArgsTable, ArgTypes } from "@storybook/components";
+import { useInjectCustomProperties } from "../hooks/useInjectCustomProperties";
+import { CssPropertyItemGroup, CustomPropertiesKeyValues } from "./types";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { ADDON_ID } from "../../constants";
 
-export interface CssPropsTableRowProps {
-  customProperties: CssPropTypes;
+export interface CssPropsTableProps {
+  customProperties: CssPropertyItemGroup;
   presetColors?: string[];
+  storyId?: string;
   inAddonPanel?: boolean;
 }
 
-export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
+const reduceCssPropertyItemGroupToValue = (
+  customProperties: CssPropertyItemGroup
+) => {
+  const newParams: CustomPropertiesKeyValues = {};
+  Object.keys(customProperties).forEach((key) => {
+    newParams[key] = customProperties[key].value;
+  });
+  return newParams;
+};
+
+const formatForArgsTable = ({
+  customProperties,
+  presetColors,
+  storyId,
+  initialCustomProperties,
+}: {
+  customProperties: CssPropertyItemGroup;
+  storyId: string;
+  presetColors?: string[];
+  initialCustomProperties?: {
+    [storyId: string]: CustomPropertiesKeyValues;
+  };
+}) =>
+  Object.keys(customProperties).reduce((previousValue, currentValue) => {
+    const customProperty = customProperties[currentValue];
+    const initialCustomProperty =
+      initialCustomProperties?.[storyId]?.[currentValue] || "";
+    const description = customProperty.description || "";
+
+    previousValue[currentValue] = {
+      name: currentValue,
+      description,
+      category: "",
+      control: {
+        type: customProperty.control || "color",
+        value: customProperties[currentValue].value,
+        presetColors,
+      },
+      table: {
+        defaultValue: {
+          summary: initialCustomProperty,
+        },
+      },
+    };
+    return previousValue;
+  }, {} as ArgTypes);
+
+const mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable = ({
+  customProperties,
+  storageProperties = {},
+  initialCustomProperties,
+  storyId,
+  presetColors,
+}: {
+  customProperties: CssPropertyItemGroup;
+  storageProperties: CustomPropertiesKeyValues;
+  initialCustomProperties: {
+    [storyId: string]: CustomPropertiesKeyValues;
+  };
+  storyId: string;
+  presetColors?: string[];
+}) => {
+  const updatedCustomProperties: CssPropertyItemGroup = { ...customProperties };
+  Object.keys(customProperties).forEach((key) => {
+    if (storageProperties[key]) {
+      updatedCustomProperties[key].value = storageProperties[key];
+    }
+  });
+  return formatForArgsTable({
+    customProperties: updatedCustomProperties,
+    initialCustomProperties,
+    storyId,
+    presetColors,
+  });
+};
+
+export const CssPropsTable = ({
   customProperties = {},
   presetColors,
+  storyId = "unknown-story",
   inAddonPanel,
-}) => {
-  const [mergedCustomProperties, setMergedCustomProperties] = React.useState(
-    mergeCustomPropertiesWithStorage(customProperties)
+}: CssPropsTableProps) => {
+  const customPropertyValues = reduceCssPropertyItemGroupToValue(
+    customProperties
   );
 
-  const handleResetProps = () => {
-    const customPropertyKeys = Object.keys(customProperties);
-    resetStorage(customPropertyKeys);
-    setMergedCustomProperties(customProperties);
+  const [storedProperties, setStoredProperties] = useLocalStorage<{
+    customProperties: {
+      [storyId: string]: CustomPropertiesKeyValues;
+    };
+    initialCustomProperties: {
+      [storyId: string]: CustomPropertiesKeyValues;
+    };
+  }>({
+    key: ADDON_ID,
+    defaultValue: {
+      customProperties: { [storyId]: customPropertyValues },
+      initialCustomProperties: { [storyId]: customPropertyValues },
+    },
+  });
+
+  React.useEffect(() => {
+    if (!storedProperties.initialCustomProperties[storyId]) {
+      setStoredProperties({
+        customProperties: storedProperties.customProperties,
+        initialCustomProperties: {
+          ...storedProperties.initialCustomProperties,
+          [storyId]: customPropertyValues,
+        },
+      });
+    }
+  }, [customPropertyValues, setStoredProperties, storedProperties, storyId]);
+
+  React.useEffect(() => {
+    if (!storedProperties.initialCustomProperties[storyId]) {
+      setStoredProperties({
+        customProperties: {
+          ...storedProperties.customProperties,
+          [storyId]: customPropertyValues,
+        },
+        initialCustomProperties: {
+          ...storedProperties.initialCustomProperties,
+          [storyId]: customPropertyValues,
+        },
+      });
+    }
+  }, [
+    customPropertyValues,
+    setStoredProperties,
+    storedProperties.customProperties,
+    storedProperties.initialCustomProperties,
+    storyId,
+  ]);
+
+  const [rows, setRows] = React.useState(
+    formatForArgsTable({
+      customProperties,
+      presetColors,
+      storyId,
+      initialCustomProperties: storedProperties.initialCustomProperties,
+    })
+  );
+
+  const handleUpdateStorage = (args: CustomPropertiesKeyValues) => {
+    const newProperties = {} as CustomPropertiesKeyValues;
+
+    Object.keys(args).forEach((key) => {
+      newProperties[key] = args[key];
+    });
+    const mergedProperties = {
+      ...storedProperties.customProperties[storyId],
+      ...newProperties,
+    };
+    setStoredProperties({
+      ...storedProperties,
+      customProperties: {
+        ...storedProperties.customProperties,
+        [storyId]: mergedProperties,
+      },
+    });
+    const newRows = mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable(
+      {
+        customProperties,
+        storageProperties: mergedProperties,
+        initialCustomProperties: storedProperties.initialCustomProperties,
+        storyId,
+        presetColors,
+      }
+    );
+    setRows(newRows);
   };
 
-  const handleUpdateStorage = (args: CssProps) => {
-    const newStorage = updateStorage(args);
-    setMergedCustomProperties(
-      mergeCustomPropertiesWithStorage(mergedCustomProperties, newStorage)
-    );
+  useInjectCustomProperties(storedProperties.customProperties[storyId]);
+
+  const handleResetProps = () => {
+    setStoredProperties({
+      customProperties: {
+        ...storedProperties.customProperties,
+        [storyId]: storedProperties.initialCustomProperties[storyId],
+      },
+      initialCustomProperties: storedProperties.initialCustomProperties,
+    });
+    // We can't reset the args table colour control unfortunately :/
+    // Clear the storage and reload for now.
+    window.location.reload();
   };
 
   React.useEffect(() => {
-    setMergedCustomProperties(
-      mergeCustomPropertiesWithStorage(customProperties)
+    const newRows = mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable(
+      {
+        customProperties,
+        storageProperties: storedProperties.customProperties[storyId],
+        initialCustomProperties: storedProperties.initialCustomProperties,
+        storyId,
+        presetColors,
+      }
     );
-  }, [customProperties]);
-
-  useInjectCustomProperties(mergedCustomProperties);
-
-  const common = {
-    updateStorage: handleUpdateStorage,
-    inAddonPanel,
-    presetColors,
-  };
+    setRows(newRows);
+  }, [customProperties, presetColors, storedProperties, storyId]);
 
   return (
-    <ResetWrapper>
-      <TableWrapper {...{ inAddonPanel }}>
-        <thead>
-          <tr>
-            <th>CSS Custom Property</th>
-            <th>Description</th>
-            <th>
-              <CssPropsHeadingWrapper>
-                Value{" "}
-                <ResetButton
-                  onClick={handleResetProps}
-                  title="Reset CSS Custom Props"
-                >
-                  <Icons icon="sync" aria-hidden />
-                </ResetButton>
-              </CssPropsHeadingWrapper>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(mergedCustomProperties).map((name) => {
-            const row = {
-              ...mergedCustomProperties[name],
-              name,
-            };
-            return <CssPropRow key={name} row={row} {...common} />;
-          })}
-        </tbody>
-      </TableWrapper>
-    </ResetWrapper>
+    <ArgsTable
+      inAddonPanel={inAddonPanel}
+      resetArgs={handleResetProps}
+      rows={rows}
+      updateArgs={(arg) => {
+        const [name] = Object.keys(arg);
+        const value = arg[name];
+        handleUpdateStorage({ [name]: value });
+      }}
+    />
   );
 };

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CssPropTypes } from "./types";
+import { CustomPropertiesKeyValues } from "../CssPropsTable/types";
 
 function o2s(style: React.CSSProperties) {
   let string = "";
@@ -10,11 +10,13 @@ function o2s(style: React.CSSProperties) {
   return string;
 }
 
-export const useInjectCustomProperties = (customProperties: CssPropTypes) => {
+export const useInjectCustomProperties = (
+  customProperties: CustomPropertiesKeyValues = {}
+) => {
   const styles = Object.keys(customProperties)
-    .filter((i) => customProperties[i].value)
+    .filter((i) => customProperties[i])
     .reduce(
-      (o, key) => ({ ...o, [`--${key}`]: customProperties[key].value }),
+      (o, key) => ({ ...o, [`--${key}`]: customProperties[key] }),
       {}
     ) as React.CSSProperties;
 
@@ -33,6 +35,8 @@ export const useInjectCustomProperties = (customProperties: CssPropTypes) => {
 
   React.useLayoutEffect(() => {
     const stringifiedStyles = o2s(styles);
-    previewRef?.current?.body.setAttribute("style", stringifiedStyles);
+    if (stringifiedStyles) {
+      previewRef?.current?.body.setAttribute("style", stringifiedStyles);
+    }
   }, [customProperties, styles]);
 };

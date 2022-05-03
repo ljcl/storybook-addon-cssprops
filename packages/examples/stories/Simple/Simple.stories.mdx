@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
-import SimpleStories from "./Simple.stories";
+import cssprops from "./testData";
 
 <Meta title="Simple Component/MDX" />
 
@@ -16,11 +16,8 @@ import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
 <CssPropsBlock
   customProperties={{
-    ...SimpleStories.parameters.cssprops,
-    "css-custom-property-1": {
-      value: "orange",
-      description: "Defined in an MDX file!",
-    },
+    ...cssprops.primary,
+    ...cssprops.secondary,
   }}
 />
 

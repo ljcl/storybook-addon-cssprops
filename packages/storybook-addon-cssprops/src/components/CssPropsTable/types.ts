@@ -1,21 +1,20 @@
-export interface CssPropType {
-  name: string;
+export interface CssPropertyItem {
   control?: "text" | "color";
   value: string;
   description?: string;
 }
 
-export interface CssPropTypes {
-  [name: string]: CssPropType;
+export interface CssPropertyItemGroup {
+  [cssCustomPropertyKey: string]: CssPropertyItem;
 }
 
 /** Additional options which are removed before reaching CssPropsTable */
-export type CssPropsParametersType = CssPropTypes & {
+export type CssPropsParametersType = CssPropertyItemGroup & {
   presetColors?: string[];
   disable?: boolean;
 };
 
 /** Simple key value pairs for use when saving to storage */
-export interface CssProps {
-  [cssCustomPropertyKey: string]: string;
+export interface CustomPropertiesKeyValues {
+  [customPropertyKey: string]: string;
 }
