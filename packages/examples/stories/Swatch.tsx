@@ -3,10 +3,7 @@ interface SwatchProps {
   size?: string;
 }
 
-export const Swatch: React.FC<SwatchProps> = ({
-  name = "woop",
-  size = "12rem",
-}) => {
+export const Swatch = ({ name = "woop", size = "12rem" }: SwatchProps) => {
   return (
     <div
       style={{

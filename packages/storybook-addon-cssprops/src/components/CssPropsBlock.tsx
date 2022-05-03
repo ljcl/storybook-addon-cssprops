@@ -2,19 +2,19 @@ import * as React from "react";
 import { CssPropsTable } from "./CssPropsTable/CssPropsTable";
 import type {
   CssPropsParametersType,
-  CssPropTypes,
+  CssPropertyItemGroup,
 } from "./CssPropsTable/types";
 import { DocsContext, DocsContextProps } from "@storybook/addon-docs/blocks";
 
 interface CssPropsBlockProps {
-  customProperties: CssPropTypes;
+  customProperties: CssPropertyItemGroup;
 }
 
 /**
  * For use inside Storybook Docs and MDX
  */
 export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
-  const overrideCustomProperties = props.customProperties;
+  const overrideCustomProperties = { ...props.customProperties };
 
   const context = React.useContext<DocsContextProps>(DocsContext);
   const cssprops: CssPropsParametersType = { ...context?.parameters?.cssprops };
