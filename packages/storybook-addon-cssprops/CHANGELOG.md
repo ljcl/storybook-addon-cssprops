@@ -1,5 +1,12 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.2.0
+
+### Minor Changes
+
+- 550d019: Update addon icon and metadata
+- 2f405f6: Use api.getCurrentStoryData instead of useStorybookState
+
 ## 2.1.0
 
 ### Minor Changes
