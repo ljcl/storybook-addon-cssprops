@@ -1,8 +1,13 @@
-# Storybook CSS Custom Properties Addon
+<p align="center">
+  <img src="./assets/icon.png">
+  <h1>Storybook CSS Custom Properties Addon</h1>
+</p>
 
 <p align="center">
   <img width="800" src="./assets/example.jpg">
 </p>
+
+## Installation
 
 ```sh
 npm i -D @ljcl/storybook-addon-cssprops
@@ -40,11 +45,26 @@ export default {
 } as Meta;
 ```
 
-Controls default to colour, but can be switched to text by adding `cssprops.myparam.control: 'text'`.
+## Configuration
 
-Disable the picker with `cssprops.disable: true`
+The addon can be configured wherever other [parameters](https://storybook.js.org/docs/react/writing-stories/parameters) can be configured (at the Global, Story, or individual story level). It will also attempt to detect between `colour` and `text`, this can be overriden by specifying the `control` property.
 
-Customise preset colours for the colourpicker with `cssprops.presetColors: ['#FFF']`.
+```ts
+parameters: {
+  cssprops: {
+    // Disable the addon by setting disable to true:
+    disable: false,
+    // Override the detected default control type:
+    "override-property-detection-type": {
+      value: "green",
+      control: "text",
+      description: "Maybe you want 'green' for reasons differing to colour"
+    },
+    // Customise preset colours for the colourpicker
+    presetColors: ['#FFF']
+  }
+}
+```
 
 ### Adding to DocsPage and MDX
 
@@ -58,12 +78,6 @@ This monorepo uses npm@7 workspaces, run `npm i` at the root.
 
 ### TODO
 
-[] Auto detect input type.  
-[] Look for the args of a defined component when in MDX  
-[] Configurable per story localstorage.  
-[] Better specificity when injecting styles (with & without iframes)
-[] Functioning reset button.
-
-## Credits
-
-Portions of this package are sourced from the storybook source code in order to maintain look and feel.
+- [ ] Look for the args of a defined component when in MDX
+- [ ] Better specificity when injecting styles (with & without iframes)
+- [ ] Reset the default values without requiring a page refresh (ArgsTable)
