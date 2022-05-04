@@ -3,9 +3,11 @@
   "version": "1.0.1",
   "description": "Interact with css custom properties dynamically in the Storybook UI",
   "keywords": [
+    "storybook-addons",
     "addon",
     "storybook",
-    "css",
+    "style",
+    "CSS",
     "custom properties",
     "properties"
   ],
@@ -23,6 +25,21 @@
     "*.js",
     "*.d.ts"
   ],
+  "storybook": {
+    "displayName": "CSS Custom Properties",
+    "icon": "https://user-images.githubusercontent.com/1884292/166611038-725ab948-5f50-4b79-bedb-7e8a0278938b.png",
+    "supportedFrameworks": [
+      "react",
+      "vue",
+      "svelte",
+      "web-components",
+      "angular",
+      "ember",
+      "html",
+      "preact",
+      "react-native"
+    ]
+  },
   "devDependencies": {
     "@storybook/api": "^6.4.12",
     "@storybook/client-api": "^6.4.12",
