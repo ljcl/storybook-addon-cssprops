@@ -1,5 +1,15 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.0.0
+
+### Major Changes
+
+- 9452771: Custom Properties are now scoped per storyId
+  Improved reset functionality
+  Use ArgsTable from @storybook/components
+  Display default value in table
+  Updating the metadata for the storybook catalogue
+
 ## 1.0.1
 
 ### Patch Changes
