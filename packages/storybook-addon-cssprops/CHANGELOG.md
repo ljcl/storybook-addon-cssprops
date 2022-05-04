@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.1.0
+
+### Minor Changes
+
+- 85844b1: Autodetect between colour or text when not explicitly defined
+
 ## 2.0.0
 
 ### Major Changes
