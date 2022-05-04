@@ -1,6 +1,6 @@
 {
   "name": "examples",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "react": "^16.14.0",
@@ -10,7 +10,7 @@
     "@babel/core": "^7.4.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.4.2",
-    "@ljcl/storybook-addon-cssprops": "^1.0.0",
+    "@ljcl/storybook-addon-cssprops": "^2.0.0",
     "@storybook/addon-actions": "^6.4.12",
     "@storybook/addon-docs": "^6.4.12",
     "@storybook/addon-links": "^6.4.12",
