@@ -1,6 +1,6 @@
 {
   "name": "@ljcl/storybook-addon-cssprops",
-  "version": "2.1.0",
+  "version": "2.0.0",
   "description": "Interact with css custom properties dynamically in the Storybook UI",
   "keywords": [
     "storybook-addons",
@@ -27,7 +27,7 @@
   ],
   "storybook": {
     "displayName": "CSS Custom Properties",
-    "icon": "https://user-images.githubusercontent.com/1884292/166611038-725ab948-5f50-4b79-bedb-7e8a0278938b.png",
+    "icon": "https://user-images.githubusercontent.com/1884292/166622291-2eda0677-956b-4a4e-be57-afe4aa69c1dc.png",
     "supportedFrameworks": [
       "react",
       "vue",
