@@ -22,6 +22,9 @@ const reduceCssPropertyItemGroupToValue = (
   return newParams;
 };
 
+const detectControlType = (value: string) =>
+  CSS.supports("color", value) ? "color" : "text";
+
 const formatForArgsTable = ({
   customProperties,
   presetColors,
@@ -41,13 +44,15 @@ const formatForArgsTable = ({
       initialCustomProperties?.[storyId]?.[currentValue] || "";
     const description = customProperty.description || "";
 
+    const value = customProperties[currentValue].value;
+
     previousValue[currentValue] = {
       name: currentValue,
       description,
       category: "",
       control: {
-        type: customProperty.control || "color",
-        value: customProperties[currentValue].value,
+        type: customProperty.control || detectControlType(value),
+        value: value,
         presetColors,
       },
       table: {
