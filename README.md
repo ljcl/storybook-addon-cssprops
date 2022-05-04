@@ -29,7 +29,7 @@ import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
 ## Usage
 
-Include your CSS Custom Properties without the intial `--` prefix, the addon will apply and document this automatically.
+Include your CSS Custom Properties without the initial `--` prefix, the addon will apply and document this automatically.
 
 ```jsx
 export default {
