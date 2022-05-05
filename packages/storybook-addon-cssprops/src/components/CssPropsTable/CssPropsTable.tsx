@@ -56,6 +56,8 @@ const formatForArgsTable = ({
         presetColors,
       },
       table: {
+        category: customProperty.category,
+        subcategory: customProperty.subcategory,
         defaultValue: {
           summary: initialCustomProperty,
         },

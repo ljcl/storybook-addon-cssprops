@@ -60,6 +60,13 @@ parameters: {
       control: "text",
       description: "Maybe you want 'green' for reasons differing to colour"
     },
+    // Override the detected default control type:
+    "optional-category-or-subcategory": {
+      value: "red",
+      category: "Optional",
+      subcategory: "Very Optional",
+      description: "This property will be grouped under a category called 'Optional', and then a further subcategory of 'Very Optional'",
+    },
     // Customise preset colours for the colourpicker
     presetColors: ['#FFF']
   }
