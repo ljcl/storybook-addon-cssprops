@@ -55,8 +55,8 @@
   },
   "peerDependencies": {
     "@storybook/addon-docs": "^6.1.16",
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "peerDependenciesMeta": {
     "@storybook/addon-docs": {
