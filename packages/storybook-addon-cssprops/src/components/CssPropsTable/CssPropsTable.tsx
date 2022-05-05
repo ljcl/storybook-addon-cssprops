@@ -58,6 +58,10 @@ const formatForArgsTable = ({
       table: {
         category: customProperty.category,
         subcategory: customProperty.subcategory,
+        // Hack:
+        // ArgValue/ArgsSummary is looking for an object here, not a string
+        // trick it into returning null rather than a <span>-</span>
+        type: "CSS Custom Property",
         defaultValue: {
           summary: initialCustomProperty,
         },
