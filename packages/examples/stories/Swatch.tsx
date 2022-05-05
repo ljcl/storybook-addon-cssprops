@@ -3,7 +3,7 @@ interface SwatchProps {
   size?: string;
 }
 
-export const Swatch = ({ name = "woop", size = "12rem" }: SwatchProps) => {
+export const Swatch = ({ name = "", size = "12rem" }: SwatchProps) => {
   return (
     <div
       style={{
@@ -14,6 +14,8 @@ export const Swatch = ({ name = "woop", size = "12rem" }: SwatchProps) => {
         overflow: "hidden",
         fontSize: "85%",
         fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+        background: "white",
+        margin: "var(--css-custom-property-3, '1vh') 0",
       }}
     >
       <div
@@ -24,8 +26,8 @@ export const Swatch = ({ name = "woop", size = "12rem" }: SwatchProps) => {
           linear-gradient(-45deg, transparent 75%, rgba(43, 40, 38, 0.1) 0)`,
           backgroundSize: `12px 12px`,
           backgroundPosition: `0 0, 0 6px, 6px -6px, -6px 0`,
-          width: `var(--css-custom-property-3, ${size})`,
-          height: `var(--css-custom-property-3, ${size})`,
+          width: `${size}`,
+          height: `${size}`,
         }}
       >
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}

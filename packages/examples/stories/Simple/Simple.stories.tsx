@@ -7,7 +7,8 @@ const Swatches = ({ cssprops }) => (
   <div
     style={{
       display: "flex",
-      justifyContent: "space-around",
+      justifyContent: "space-evenly",
+      flexWrap: "wrap",
     }}
   >
     {Object.keys(cssprops)
