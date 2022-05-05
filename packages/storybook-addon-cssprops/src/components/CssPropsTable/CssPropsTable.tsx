@@ -41,7 +41,7 @@ const formatForArgsTable = ({
   Object.keys(customProperties).reduce((previousValue, currentValue) => {
     const customProperty = customProperties[currentValue];
     const initialCustomProperty =
-      initialCustomProperties?.[storyId]?.[currentValue] || "";
+      initialCustomProperties?.[storyId]?.[currentValue] || undefined;
     const description = customProperty.description || "";
 
     const value = customProperties[currentValue].value;
