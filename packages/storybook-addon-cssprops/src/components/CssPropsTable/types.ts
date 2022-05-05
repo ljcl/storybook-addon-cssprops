@@ -2,6 +2,8 @@ export interface CssPropertyItem {
   control?: "text" | "color";
   value: string;
   description?: string;
+  category?: string;
+  subcategory?: string;
 }
 
 export interface CssPropertyItemGroup {
