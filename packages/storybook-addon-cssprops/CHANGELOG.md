@@ -1,5 +1,13 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.3.0
+
+### Minor Changes
+
+- 43b38c4: Don't show empty quotes in the table for parameters without a default value
+- f52f764: Support categories and subcategories
+- bfc5e00: Hide the unnecessary ArgValue `<span>-</span>`
+
 ## 2.2.0
 
 ### Minor Changes
