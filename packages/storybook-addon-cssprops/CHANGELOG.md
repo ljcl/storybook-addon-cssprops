@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.3.1
+
+### Patch Changes
+
+- 4d45471: Resolve crash when the browser has localstorage in the old format
+
 ## 2.3.0
 
 ### Minor Changes
