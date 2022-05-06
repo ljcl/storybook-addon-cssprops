@@ -125,6 +125,13 @@ export const CssPropsTable = ({
   });
 
   React.useEffect(() => {
+    if (storedProperties && !("initialCustomProperties" in storedProperties)) {
+      // The storage may be formatted in as it is in prior versions, causing storybook to crash, reset it
+      setStoredProperties({
+        customProperties: { [storyId]: customPropertyValues },
+        initialCustomProperties: { [storyId]: customPropertyValues },
+      });
+    }
     if (!storedProperties.initialCustomProperties[storyId]) {
       setStoredProperties({
         customProperties: storedProperties.customProperties,
@@ -195,7 +202,7 @@ export const CssPropsTable = ({
     setRows(newRows);
   };
 
-  useInjectCustomProperties(storedProperties.customProperties[storyId]);
+  useInjectCustomProperties(storedProperties.customProperties?.[storyId]);
 
   const handleResetProps = () => {
     setStoredProperties({
