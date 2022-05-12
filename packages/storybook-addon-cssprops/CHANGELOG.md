@@ -1,5 +1,13 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.3.2
+
+### Patch Changes
+
+- 82da168: use storyId as key for ArgsTable to refresh values in colour control when switching stories
+- 53484f0: Docs: use `window.__DOCS_CONTEXT__` as an alternate context source if `DocsContext` is not available.
+- 624196a: Fix occasional crash when hitting the reset button
+
 ## 2.3.1
 
 ### Patch Changes
