@@ -36,7 +36,10 @@ export const useInjectCustomProperties = (
   React.useLayoutEffect(() => {
     const stringifiedStyles = o2s(styles);
     if (stringifiedStyles) {
-      previewRef?.current?.body.setAttribute("style", stringifiedStyles);
+      previewRef?.current?.body?.setAttribute("style", stringifiedStyles);
     }
+    return () => {
+      previewRef?.current?.body?.removeAttribute("style");
+    };
   }, [customProperties, styles]);
 };
