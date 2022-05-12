@@ -50,6 +50,7 @@ const formatForArgsTable = ({
       name: currentValue,
       description,
       category: "",
+      key: currentValue,
       control: {
         type: customProperty.control || detectControlType(value),
         value: value,
@@ -230,8 +231,16 @@ export const CssPropsTable = ({
     setRows(newRows);
   }, [customProperties, presetColors, storedProperties, storyId]);
 
+
+  const [stateStoryId, setStateStoryId] = React.useState(storyId);
+
+  React.useEffect(() => {
+    setStateStoryId(storyId);
+  }, [storyId]);
+
   return (
     <ArgsTable
+      key={stateStoryId}
       inAddonPanel={inAddonPanel}
       resetArgs={handleResetProps}
       rows={rows}
