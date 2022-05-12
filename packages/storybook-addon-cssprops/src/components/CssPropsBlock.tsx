@@ -10,13 +10,31 @@ interface CssPropsBlockProps {
   customProperties: CssPropertyItemGroup;
 }
 
+declare global {
+  interface Window {
+    __DOCS_CONTEXT__: React.Context<DocsContextProps>;
+  }
+}
+
+const useDocsContext = (): DocsContextProps => {
+  const mainContext = React.useContext(DocsContext);
+  const windowContext = React.useContext(
+    window.__DOCS_CONTEXT__
+  ) as DocsContextProps;
+
+  const mainContextAvailable = Object.keys(mainContext).length > 0;
+
+  return mainContextAvailable ? mainContext : windowContext;
+};
+
 /**
  * For use inside Storybook Docs and MDX
  */
 export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
-  const overrideCustomProperties = { ...props.customProperties };
+  const overrideCustomProperties = props.customProperties;
 
-  const context = React.useContext<DocsContextProps>(DocsContext);
+  const context = useDocsContext();
+
   const cssprops: CssPropsParametersType = { ...context?.parameters?.cssprops };
 
   const { presetColors, disable, ...restProperties } = cssprops;
@@ -31,6 +49,7 @@ export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
 
   return (
     <CssPropsTable
+      storyId={context?.id}
       presetColors={presetColors}
       customProperties={customProperties}
     />
