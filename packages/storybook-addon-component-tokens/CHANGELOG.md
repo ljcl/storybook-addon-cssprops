@@ -1,3 +1,15 @@
+# v0.1.6 (Fri May 27 2022)
+
+#### ⚠️ Pushed to `main`
+
+- fix: update storybook & refactor component imports ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v0.1.5 (Thu Sep 30 2021)
 
 #### ⚠️ Pushed to `main`

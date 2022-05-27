@@ -1,3 +1,16 @@
+# (Fri May 27 2022)
+
+#### ⚠️ Pushed to `main`
+
+- `@kickstartds/storybook-addon-component-tokens@0.1.6`
+  - fix: update storybook & refactor component imports ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Thu Sep 30 2021)
 
 #### ⚠️ Pushed to `main`
