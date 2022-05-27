@@ -3,9 +3,7 @@ import type { Meta, Story } from "@storybook/react/types-6-0";
 import "./style.css";
 
 const cssprops = {
-  "--width": [
-    { value: "100%", selector: ":root" }
-  ],
+  "--width": [{ value: "100%", selector: ":root" }],
 };
 
 export default {
@@ -15,8 +13,6 @@ export default {
   },
 } as Meta;
 
-const Swatches: Story = () => (
-  <div>Lorem Ipsum</div>
-);
+const Swatches: Story = () => <div>Lorem Ipsum</div>;
 
 export const DefaultStory = Swatches.bind({});

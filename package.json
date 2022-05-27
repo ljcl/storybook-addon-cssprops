@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "yarn workspace @kickstartds/storybook-addon-component-tokens build",
-    "dev": "concurrently \"yarn workspace @kickstartds/storybook-addon-component-tokens dev\" \"yarn workspace examples storybook\"",
+    "dev": "concurrently \"yarn workspace @kickstartds/storybook-addon-component-tokens dev\" \"yarn workspace examples storybook\" --raw",
     "format": "prettier -w ."
   },
   "publishConfig": {

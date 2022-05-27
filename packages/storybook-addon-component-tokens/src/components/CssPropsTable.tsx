@@ -1,9 +1,9 @@
 import * as React from "react";
 import { FullExtractResult } from "custom-property-extract/dist/types";
 import {
-  ResetWrapper,
+  components,
   ArgsTable,
-  ArgsTableRowProps,
+  ArgsTableOptionProps,
   ArgTypes,
   Placeholder,
 } from "@storybook/components";
@@ -14,6 +14,8 @@ import {
   mergeCustomPropertiesWithStorage,
 } from "./storage";
 import { useInjectStyle } from "./InjectStyle";
+
+const ResetWrapper = components.resetwrapper;
 
 interface CssPropsTableRowProps {
   customProperties: FullExtractResult;
@@ -76,7 +78,7 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
     setMergedArgs(initialArgs);
   };
 
-  const updateArgs: ArgsTableRowProps["updateArgs"] = (args) => {
+  const updateArgs: ArgsTableOptionProps["updateArgs"] = (args) => {
     const storedProperties = updateStorage(args);
     setMergedArgs(
       mergeCustomPropertiesWithStorage(mergedArgs, storedProperties)
