@@ -1,6 +1,6 @@
 {
   "name": "@kickstartds/storybook-addon-component-tokens",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Interact with css component tokens dynamically in the Storybook UI",
   "keywords": [
     "addon",
