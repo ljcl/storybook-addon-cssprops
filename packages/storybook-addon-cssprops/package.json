@@ -47,7 +47,6 @@
     "@storybook/node-logger": "^6.5.9",
     "@types/node": "^14.14.22",
     "@types/react": "^16.8.8",
-    "polish": "^0.2.3",
     "rimraf": "^3.0.2",
     "typescript": "^4.1.3"
   },
@@ -59,12 +58,21 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
   "scripts": {
     "dev": "tsc --watch --preserveWatchOutput",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
+    "lint": "eslint src",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "clean": "rimraf dist",
+    "clean": "rimraf .turbo && rimraf node_modules && rimraf dist",
     "prepublishOnly": "npm run clean && cp ../../README.md ./ && cp -r ../../assets ./ && npm run build"
   },
   "publishConfig": {

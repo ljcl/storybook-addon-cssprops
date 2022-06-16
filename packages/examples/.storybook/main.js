@@ -9,6 +9,4 @@ module.exports = {
   core: {
     builder: "webpack5",
   },
-  // temporary fix: https://github.com/storybookjs/storybook/issues/15336
-  typescript: { reactDocgen: false },
 };

@@ -24,11 +24,14 @@
     "@storybook/theming": "^6.5.9",
     "babel-loader": "^8.2.5",
     "react-docgen-typescript-loader": "^3.7.2",
+    "rimraf": "^3.0.2",
     "ts-loader": "^9.3.0",
     "webpack": "^5.73.0"
   },
   "scripts": {
+    "dev": "pnpm storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "build-storybook",
+    "clean": "rimraf .turbo && rimraf node_modules"
   }
 }
