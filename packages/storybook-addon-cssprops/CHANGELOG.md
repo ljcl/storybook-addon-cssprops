@@ -1,5 +1,12 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.3.3
+
+### Patch Changes
+
+- 37d5e47: Update storybook peerDependency requirement to ^6.4.19
+- 2696d26: Update react peerDependencies to include 18
+
 ## 2.3.2
 
 ### Patch Changes
