@@ -16,6 +16,7 @@
     "eslint-config-react-app": "^7.0.1",
     "only-allow": "^1.1.0",
     "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
     "turbo": "latest"
   },
   "scripts": {

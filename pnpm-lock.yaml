@@ -13,6 +13,7 @@ importers:
       eslint-config-react-app: ^7.0.1
       only-allow: ^1.1.0
       prettier: ^2.7.1
+      rimraf: ^3.0.2
       turbo: latest
     devDependencies:
       '@changesets/cli': 2.23.0
@@ -21,6 +22,7 @@ importers:
       eslint-config-react-app: 7.0.1_dsxsc6i2bg45oqd3fiknluqddy
       only-allow: 1.1.0
       prettier: 2.7.1
+      rimraf: 3.0.2
       turbo: 1.2.16
 
   packages/examples:
