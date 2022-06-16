@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.3.4
+
+### Patch Changes
+
+- 4640ab6b: install peerDependencies as devDependencies
+
 ## 2.3.3
 
 ### Patch Changes

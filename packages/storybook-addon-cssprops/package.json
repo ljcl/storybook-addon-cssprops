@@ -1,6 +1,6 @@
 {
   "name": "@ljcl/storybook-addon-cssprops",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Interact with css custom properties dynamically in the Storybook UI",
   "keywords": [
     "storybook-addons",
