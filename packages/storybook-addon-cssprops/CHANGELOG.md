@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 2.3.5
+
+### Patch Changes
+
+- 83f99c4f: Fix broken release
+
 ## 2.3.4
 
 ### Patch Changes
