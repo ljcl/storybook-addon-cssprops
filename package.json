@@ -10,18 +10,27 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@changesets/cli": "^2.23.0",
     "concurrently": "^7.2.2",
     "eslint": "^8.17.0",
     "eslint-config-react-app": "^7.0.1",
-    "prettier": "^2.7.1"
+    "only-allow": "^1.1.0",
+    "prettier": "^2.7.1",
+    "turbo": "latest"
   },
   "scripts": {
-    "lint": "eslint packages",
-    "release": "npm run build && changeset publish",
-    "build": "npm run --prefix packages/storybook-addon-cssprops build",
-    "dev": "concurrently \"npm run --prefix packages/storybook-addon-cssprops dev\" \"npm run --prefix packages/examples storybook\""
+    "preinstall": "npx -y only-allow pnpm",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish",
+    "build": "turbo run build --filter=!examples",
+    "dev": "turbo run dev --no-cache --parallel --continue"
   },
-  "dependencies": {
-    "@changesets/cli": "^2.23.0"
+  "pnpm": {
+    "overrides": {
+      "webpack": "^5"
+    }
   }
 }
