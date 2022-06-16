@@ -24,7 +24,8 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish",
+    "ci:version": "changeset version && pnpm install --no-frozen-lockfile && git add .",
+    "ci:publish": "pnpm build && changeset publish",
     "build": "turbo run build --filter=!examples",
     "dev": "turbo run dev --no-cache --parallel --continue"
   },
