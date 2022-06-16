@@ -76,7 +76,7 @@
     "build:esm": "tsc",
     "lint": "eslint src",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "clean": "rimraf .turbo && rimraf node_modules && rimraf dist",
+    "clean": "rimraf .turbo && rimraf dist && rimraf node_modules",
     "prepublishOnly": "pnpm run clean && cp ../../README.md ./ && cp -r ../../assets ./ && pnpm build"
   },
   "publishConfig": {
