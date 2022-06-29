@@ -24,7 +24,7 @@ Descriptions can be as long as you need and are formatted as markdown, just like
       value: "1vh",
       description: "Text input to set the vertical padding of each swatch",
       control: "text",
-      category: "Text",
+      category: "Text"
     },
     "css-custom-property-4": {
       value: "#ed1d53",
@@ -47,6 +47,20 @@ Descriptions can be as long as you need and are formatted as markdown, just like
         "The `value` can be left intentionally blank to allow us to document a property",
       control: "color",
       category: "Colour",
+    },
+    "css-custom-property-8": {
+      value: "46, 189, 186, 1",
+      // Allows us to set document a CSS Custom Property without applying anything,
+      description:
+        "The `value` can be left intentionally blank to allow us to document a property",
+      control: "color",
+      category: "Colour",
+      normalize: (value) => {
+        return value.replace('rgba(','').replace(')','');
+      },
+      denormalize: (value) => {
+        return `rgba(${value})`;
+      },
     },
   },
   secondary: {
