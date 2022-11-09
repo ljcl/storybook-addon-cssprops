@@ -8,7 +8,7 @@ You can also interact with those variables, for example changing some colors aro
 
 **[Show me a working demo](https://www.kickstartds.com/storybook/?path=/story/base-content-box--image)** (click on the `Component Tokens` addon tab)
 
-![Teaser image](./assets/teaser.png)
+![Teaser image](./docs/teaser.png)
 
 **Table of contents:**
 
