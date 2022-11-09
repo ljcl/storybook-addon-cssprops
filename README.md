@@ -10,7 +10,7 @@ You can also interact with those variables, for example changing some colors aro
 
 View the addon on **Github**: https://github.com/kickstartDS/storybook-addon-component-tokens
 
-![Teaser image](./assets/teaser-componenttoken.png)
+![Teaser image](./assets/teaser.png)
 
 **Table of contents:**
 
