@@ -19,19 +19,6 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup Caching
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.PNPM_CACHE_FOLDER }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-
       - name: Setup Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -43,11 +30,8 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Setup PNPM Config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
-
-      - name: Install Dependencies
-        run: pnpm install
+      - name: pnpm Install
+        uses: ./.github/actions/pnpm-install
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
