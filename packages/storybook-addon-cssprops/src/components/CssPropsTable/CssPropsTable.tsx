@@ -1,5 +1,6 @@
 import * as React from "react";
-import { ArgsTable, ArgTypes } from "@storybook/components";
+import { PureArgsTable } from "@storybook/blocks";
+import type { ArgTypes } from "@storybook/types";
 import { useInjectCustomProperties } from "../hooks/useInjectCustomProperties";
 import { CssPropertyItemGroup, CustomPropertiesKeyValues } from "./types";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -106,9 +107,8 @@ export const CssPropsTable = ({
   storyId = "unknown-story",
   inAddonPanel,
 }: CssPropsTableProps) => {
-  const customPropertyValues = reduceCssPropertyItemGroupToValue(
-    customProperties
-  );
+  const customPropertyValues =
+    reduceCssPropertyItemGroupToValue(customProperties);
 
   const [storedProperties, setStoredProperties] = useLocalStorage<{
     customProperties: {
@@ -191,15 +191,14 @@ export const CssPropsTable = ({
         [storyId]: mergedProperties,
       },
     });
-    const newRows = mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable(
-      {
+    const newRows =
+      mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable({
         customProperties,
         storageProperties: mergedProperties,
         initialCustomProperties: storedProperties.initialCustomProperties,
         storyId,
         presetColors,
-      }
-    );
+      });
     setRows(newRows);
   };
 
@@ -219,18 +218,16 @@ export const CssPropsTable = ({
   };
 
   React.useEffect(() => {
-    const newRows = mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable(
-      {
+    const newRows =
+      mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable({
         customProperties,
         storageProperties: storedProperties.customProperties[storyId],
         initialCustomProperties: storedProperties.initialCustomProperties,
         storyId,
         presetColors,
-      }
-    );
+      });
     setRows(newRows);
   }, [customProperties, presetColors, storedProperties, storyId]);
-
 
   const [stateStoryId, setStateStoryId] = React.useState(storyId);
 
@@ -239,7 +236,7 @@ export const CssPropsTable = ({
   }, [storyId]);
 
   return (
-    <ArgsTable
+    <PureArgsTable
       key={stateStoryId}
       inAddonPanel={inAddonPanel}
       resetArgs={handleResetProps}

@@ -1,5 +1,5 @@
 import * as React from "react";
-import addons, { types } from "@storybook/addons";
+import { addons, types } from "@storybook/addons";
 import { AddonPanel } from "@storybook/components";
 import { API } from "@storybook/api";
 import { CssPropsPanel } from "./components/CssPropsPanel";
