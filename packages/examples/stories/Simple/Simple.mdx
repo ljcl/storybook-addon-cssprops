@@ -1,8 +1,9 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import * as SimpleStories from "./Simple.stories";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 import cssprops from "./testData";
 
-<Meta title="Simple Component/MDX" />
+<Meta of={SimpleStories} />
 
 # Simple Component Example
 
@@ -14,12 +15,7 @@ Importing `CssPropsBlock` and configuring directly in MDX.
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 ```
 
-<CssPropsBlock
-  customProperties={{
-    ...cssprops.primary,
-    ...cssprops.secondary,
-  }}
-/>
+<CssPropsBlock />
 
 <Canvas>
   <Story id="simple-component-csf--default-story" />

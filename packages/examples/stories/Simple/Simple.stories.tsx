@@ -28,7 +28,11 @@ export default {
   render: () => <Swatches cssprops={cssprops.primary} />,
 } as Meta;
 
-export const DefaultStory: StoryObj = {};
+export const DefaultStory: StoryObj = {
+  parameters: {
+    cssprops: cssprops.secondary,
+  },
+};
 
 export const SecondaryStory: StoryObj = {
   parameters: {

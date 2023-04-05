@@ -1,10 +1,8 @@
 import * as React from "react";
 import { CssPropsTable } from "./CssPropsTable/CssPropsTable";
-import type {
-  CssPropsParametersType,
-  CssPropertyItemGroup,
-} from "./CssPropsTable/types";
-import { DocsContext, DocsContextProps } from "@storybook/addon-docs/blocks";
+import type { CssPropertyItemGroup } from "./CssPropsTable/types";
+import { DocsContext } from "@storybook/blocks";
+import { PreparedStory, Renderer } from "@storybook/types";
 
 interface CssPropsBlockProps {
   customProperties: CssPropertyItemGroup;
@@ -12,15 +10,13 @@ interface CssPropsBlockProps {
 
 declare global {
   interface Window {
-    __DOCS_CONTEXT__: React.Context<DocsContextProps>;
+    __DOCS_CONTEXT__: typeof DocsContext;
   }
 }
 
-const useDocsContext = (): DocsContextProps => {
+const useDocsContext = () => {
   const mainContext = React.useContext(DocsContext);
-  const windowContext = React.useContext(
-    window.__DOCS_CONTEXT__
-  ) as DocsContextProps;
+  const windowContext = React.useContext(window.__DOCS_CONTEXT__);
 
   const mainContextAvailable = Object.keys(mainContext).length > 0;
 
@@ -35,7 +31,12 @@ export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
 
   const context = useDocsContext();
 
-  const cssprops: CssPropsParametersType = { ...context?.parameters?.cssprops };
+  // @ts-expect-error: primaryStory is a private property
+  const primaryStory = (context?.primaryStory as PreparedStory<Renderer>) || {};
+
+  const cssprops = {
+    ...primaryStory?.parameters?.cssprops,
+  };
 
   const { presetColors, disable, ...restProperties } = cssprops;
 
@@ -49,7 +50,7 @@ export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
 
   return (
     <CssPropsTable
-      storyId={context?.id}
+      storyId={primaryStory?.id}
       presetColors={presetColors}
       customProperties={customProperties}
     />

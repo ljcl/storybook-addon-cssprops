@@ -1,12 +1,17 @@
-module.exports = {
+/** @type { import('@storybook/react-webpack5').StorybookConfig } */
+const config = {
   stories: ["../stories"],
   addons: ["@ljcl/storybook-addon-cssprops", "@storybook/addon-docs"],
-  framework: "@storybook/react",
-  features: {
-    storyStoreV7: true,
-    previewMdx2: true,
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {
+      builder: {},
+    },
   },
-  core: {
-    builder: "webpack5",
+  docs: {
+    autodocs: true, // see below for alternatives
+    defaultName: "Docs", // set to change the name of generated docs entries
   },
 };
+
+export default config;

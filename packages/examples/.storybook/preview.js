@@ -5,13 +5,13 @@ import {
   Subtitle,
   Description,
   Primary,
-  ArgsTable,
+  Controls,
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
-export const parameters = {
+const parameters = {
   docs: {
     container: DocsContainer,
     page: () => {
@@ -21,7 +21,7 @@ export const parameters = {
           <Subtitle />
           <Description />
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls story={PRIMARY_STORY} />
           <CssPropsBlock />
           <Stories />
         </>
@@ -47,3 +47,10 @@ export const parameters = {
     ],
   },
 };
+
+/** @type { import('@storybook/react').Preview } */
+const preview = {
+  parameters,
+};
+
+export default preview;
