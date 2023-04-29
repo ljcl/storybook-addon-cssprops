@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 3.1.0
+
+### Minor Changes
+
+- a5830c68: Fix the count displayed in the Panel Title to not include the non-css variable config keys
+
 ## 3.0.0
 
 ### Major Changes
