@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { Meta, Story } from "@storybook/react/types-6-0";
+import type { Meta, StoryObj } from "@storybook/react";
 import "./style.css";
 
 const cssprops = {
@@ -11,8 +11,7 @@ export default {
   parameters: {
     cssprops,
   },
+  component: () => <div>Lorem Ipsum</div>,
 } as Meta;
 
-const Swatches: Story = () => <div>Lorem Ipsum</div>;
-
-export const DefaultStory = Swatches.bind({});
+export const DefaultStory: StoryObj = {};

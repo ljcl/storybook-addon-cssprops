@@ -1,5 +1,6 @@
 import * as React from "react";
-import type { Meta, Story } from "@storybook/react/types-6-0";
+import type { Meta, StoryObj } from "@storybook/react";
+import CustomDoc from "./Simple.mdx";
 import "./style.css";
 
 const cssprops = {
@@ -15,15 +16,14 @@ export default {
   title: "Simple Component/CSF",
   parameters: {
     cssprops,
+    docs: { page: CustomDoc },
   },
+  component: (args) => <div className={args.className}>Hello world!</div>,
 } as Meta;
 
-const Swatches: Story = (args) => (
-  <div className={args.className}>Hello world!</div>
-);
-
-export const DefaultStory = Swatches.bind({});
-DefaultStory.args = {
-  className: "foo",
+export const DefaultStory: StoryObj = {
+  args: {
+    className: "foo",
+  },
 };
-export const SecondaryStory = Swatches.bind({});
+export const SecondaryStory: StoryObj = {};

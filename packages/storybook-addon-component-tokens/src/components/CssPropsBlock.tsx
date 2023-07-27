@@ -1,24 +1,36 @@
-import * as React from "react";
+import { FC } from "react";
+import { useOf, Of } from "@storybook/addon-docs";
 import { FullExtractResult } from "custom-property-extract/dist/types";
 import { CssPropsTable } from "./CssPropsTable";
-import { DocsContext, DocsContextProps } from "@storybook/addon-docs";
 import { hasEntries } from "./utils";
 
 interface CssPropsBlockProps {
-  customProperties: FullExtractResult;
+  of?: Of;
+  customProperties?: FullExtractResult;
 }
 
 /**
  * For use inside Storybook Docs and MDX
  */
-export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
-  const overrideCustomProperties = props.customProperties;
+export const CssPropsBlock: FC<CssPropsBlockProps> = (props) => {
+  let cssprops: FullExtractResult = {};
 
-  const context = React.useContext<DocsContextProps>(DocsContext);
-  const cssprops: FullExtractResult = { ...context?.parameters?.cssprops };
-  const customProperties = overrideCustomProperties || cssprops;
+  try {
+    const resolvedOf = useOf(props.of || "meta");
+    const { parameters = {} } =
+      resolvedOf.type === "meta"
+        ? resolvedOf.csfFile.meta
+        : resolvedOf.type === "story"
+        ? resolvedOf.story
+        : resolvedOf.type === "component"
+        ? resolvedOf.projectAnnotations
+        : {};
+    cssprops = { ...parameters.cssprops };
+  } catch (error) {}
 
-  return hasEntries(customProperties) ? (
-    <CssPropsTable customProperties={customProperties} inAddonPanel={false} />
+  cssprops = props.customProperties || cssprops;
+
+  return hasEntries(cssprops) ? (
+    <CssPropsTable customProperties={cssprops} inAddonPanel={false} />
   ) : null;
 };

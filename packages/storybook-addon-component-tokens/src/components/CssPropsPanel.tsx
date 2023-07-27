@@ -1,4 +1,4 @@
-import * as React from "react";
+import { FC } from "react";
 import { FullExtractResult } from "custom-property-extract/dist/types";
 import { CssPropsTable } from "./CssPropsTable";
 import { NoCustomPropertiesWarning } from "./NoCustomPropertiesWarning";
@@ -9,7 +9,7 @@ import { hasEntries } from "./utils";
 /**
  * Used by the Storybook Addons Panel
  */
-export const CssPropsPanel: React.FC = () => {
+export const CssPropsPanel: FC = () => {
   const cssprops = useParameter<FullExtractResult>(PARAM_KEY, {});
 
   return hasEntries(cssprops) ? (
