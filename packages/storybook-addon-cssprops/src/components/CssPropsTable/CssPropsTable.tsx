@@ -48,7 +48,7 @@ const formatForArgsTable = ({
     const value = customProperties[currentValue].value;
 
     previousValue[currentValue] = {
-      name: currentValue,
+      name: `--${currentValue}`,
       description,
       category: "",
       key: currentValue,
