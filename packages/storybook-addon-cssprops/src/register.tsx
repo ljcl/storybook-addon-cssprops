@@ -11,13 +11,13 @@ addons.register(ADDON_ID, (api: API) => {
     title: useTitle,
     type: types.PANEL,
     paramKey: PARAM_KEY,
-    render: ({ key, active }) => {
+    render: ({ active }) => {
       const story = api.getCurrentStoryData();
       if (!active || !story) {
         return <React.Fragment key="nothing">-</React.Fragment>;
       }
       return (
-        <AddonPanel key={key} active={!!active}>
+        <AddonPanel active={!!active}>
           <CssPropsPanel storyId={story.id} />
         </AddonPanel>
       );
