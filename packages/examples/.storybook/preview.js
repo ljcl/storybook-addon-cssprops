@@ -27,7 +27,9 @@ const parameters = {
         </>
       );
     },
-    inlineStories: true,
+    story: {
+      inline: true,
+    },
     prepareForInline: (story) => story(),
   },
   cssprops: {
