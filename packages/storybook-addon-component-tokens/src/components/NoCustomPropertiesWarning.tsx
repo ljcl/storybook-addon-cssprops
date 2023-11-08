@@ -1,4 +1,3 @@
-import * as React from "react";
 import { styled } from "@storybook/theming";
 import { Link } from "@storybook/components";
 

@@ -24,14 +24,12 @@ export const isValidColor = (strColor: string) => {
   return memo[strColor];
 };
 
-export type Args = Record<string, string>;
-
 export const useDocument = () => {
-  const docRef = useRef<HTMLDocument>();
+  const docRef = useRef<Document>();
   useEffect(() => {
     const iframe = document.getElementById(
-      "storybook-preview-iframe"
-    ) as HTMLIFrameElement;
+      "storybook-preview-iframe",
+    ) as HTMLIFrameElement | null;
     docRef.current = iframe?.contentWindow?.document || document;
   }, []);
   return docRef;

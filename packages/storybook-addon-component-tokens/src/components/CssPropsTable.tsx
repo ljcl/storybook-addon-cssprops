@@ -1,33 +1,29 @@
-import * as React from "react";
+import { FC, useMemo, useState } from "react";
 import { FullExtractResult } from "custom-property-extract/dist/types";
-import {
-  components,
-  ArgsTable,
-  ArgsTableOptionProps,
-  ArgTypes,
-  Placeholder,
-} from "@storybook/components";
-import { isValidColor, Args } from "./utils";
+import { components, Placeholder } from "@storybook/components";
+import { PureArgsTable } from "@storybook/blocks";
+import { ArgTypes, Args } from "@storybook/types";
+import { isValidColor } from "./utils";
 import {
   resetStorage,
   updateStorage,
   mergeCustomPropertiesWithStorage,
 } from "./storage";
-import { useInjectStyle } from "./InjectStyle";
+import { useInjectStyle } from "./useInjectStyle";
 
 const ResetWrapper = components.resetwrapper;
 
-interface CssPropsTableRowProps {
+interface CssPropsTableProps {
   customProperties: FullExtractResult;
   inAddonPanel?: boolean;
 }
 
-export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
+export const CssPropsTable: FC<CssPropsTableProps> = ({
   customProperties = {},
   inAddonPanel,
 }) => {
   const customPropertiesJSON = JSON.stringify(customProperties);
-  const { rows, initialArgs, argsKeys } = React.useMemo(
+  const { rows, initialArgs, argsKeys } = useMemo(
     () =>
       Object.entries(customProperties).reduce(
         (prev, [key, values]) => {
@@ -56,14 +52,14 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
           rows: {} as ArgTypes,
           initialArgs: {} as Args,
           argsKeys: [] as string[],
-        }
+        },
       ),
-    [customPropertiesJSON]
+    [customPropertiesJSON],
   );
 
-  const [prevProps, setPrevProps] = React.useState(customPropertiesJSON);
-  const [mergedArgs, setMergedArgs] = React.useState(
-    mergeCustomPropertiesWithStorage(initialArgs)
+  const [prevProps, setPrevProps] = useState(customPropertiesJSON);
+  const [mergedArgs, setMergedArgs] = useState(
+    mergeCustomPropertiesWithStorage(initialArgs),
   );
 
   if (customPropertiesJSON !== prevProps) {
@@ -78,10 +74,10 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
     setMergedArgs(initialArgs);
   };
 
-  const updateArgs: ArgsTableOptionProps["updateArgs"] = (args) => {
+  const updateArgs = (args: Args) => {
     const storedProperties = updateStorage(args);
     setMergedArgs(
-      mergeCustomPropertiesWithStorage(mergedArgs, storedProperties)
+      mergeCustomPropertiesWithStorage(mergedArgs, storedProperties),
     );
   };
 
@@ -90,7 +86,7 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
   return (
     <ResetWrapper>
       {argsKeys.length ? (
-        <ArgsTable
+        <PureArgsTable
           inAddonPanel={inAddonPanel}
           compact={true}
           updateArgs={updateArgs}

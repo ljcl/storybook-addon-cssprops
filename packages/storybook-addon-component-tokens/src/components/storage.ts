@@ -1,5 +1,5 @@
+import { Args } from "@storybook/types";
 import { ADDON_ID } from "../constants";
-import { Args } from "./utils";
 
 const getSessionStorage = (key: string): Record<string, string | never> => {
   if (window.sessionStorage) {
@@ -13,7 +13,7 @@ const getSessionStorage = (key: string): Record<string, string | never> => {
       console.warn(
         "[storybook-addon-component-tokens]",
         "Couldn't read sessionStorage",
-        e
+        e,
       );
       return {};
     }
@@ -23,7 +23,7 @@ const getSessionStorage = (key: string): Record<string, string | never> => {
 
 const setSessionStorage = (
   key: string,
-  data: Record<string, unknown>
+  data: Record<string, unknown>,
 ): void => {
   if (window.sessionStorage) {
     if (data) {
@@ -32,7 +32,7 @@ const setSessionStorage = (
       } catch (e) {
         console.warn(
           "[storybook-addon-component-tokens]",
-          "Couldn't write to sessionStorage"
+          "Couldn't write to sessionStorage",
         );
       }
     }
@@ -65,5 +65,5 @@ export const resetStorage = (cssPropNames?: string[]) => {
 
 export const mergeCustomPropertiesWithStorage = (
   fromParams: Args = {},
-  fromStorage = getSessionStorage(ADDON_ID)
+  fromStorage = getSessionStorage(ADDON_ID),
 ) => ({ ...fromParams, ...fromStorage });

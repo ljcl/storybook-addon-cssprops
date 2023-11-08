@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
+import { Args } from "@storybook/types";
 import { ADDON_ID } from "../constants";
-import { Args, useDocument } from "./utils";
+import { useDocument } from "./utils";
 
 export const useInjectStyle = (args: Args) => {
   const styleRef = useRef<HTMLStyleElement>();
@@ -8,7 +9,7 @@ export const useInjectStyle = (args: Args) => {
   useEffect(() => {
     if (docRef.current) {
       styleRef.current = docRef.current.getElementById(
-        ADDON_ID
+        ADDON_ID,
       ) as HTMLStyleElement;
       if (!styleRef.current) {
         const styleEl = docRef.current.createElement("style");
