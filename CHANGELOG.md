@@ -1,3 +1,24 @@
+# (Wed Nov 08 2023)
+
+#### 💥 Breaking Change
+
+- `@kickstartds/storybook-addon-component-tokens@1.0.0`
+  - Upgrade to Storybook 7 [#18](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/18) ([@lmestel](https://github.com/lmestel))
+
+#### ⚠️ Pushed to `main`
+
+- fix: final fix for image URL in README.md ([@julrich](https://github.com/julrich))
+- fix: remove Github link from README.md ([@julrich](https://github.com/julrich))
+- fix: image URL in README.md ([@julrich](https://github.com/julrich))
+- chore: update README.md ([@julrich](https://github.com/julrich))
+
+#### Authors: 2
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Fri May 27 2022)
 
 #### ⚠️ Pushed to `main`

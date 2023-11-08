@@ -1,3 +1,19 @@
+# v1.0.0 (Wed Nov 08 2023)
+
+#### 💥 Breaking Change
+
+- Upgrade to Storybook 7 [#18](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/18) ([@lmestel](https://github.com/lmestel))
+
+#### 🐛 Bug Fix
+
+- feat: upgrade to storybook 7 ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v0.1.6 (Fri May 27 2022)
 
 #### ⚠️ Pushed to `main`
