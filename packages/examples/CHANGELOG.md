@@ -1,5 +1,11 @@
 # examples
 
+## 0.4.0
+
+### Minor Changes
+
+- 5df22e65: Upgrades Storybook and fixes deprecated warnings
+
 ## 0.3.0
 
 ### Minor Changes
