@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 3.2.0
+
+### Minor Changes
+
+- 5df22e65: Fixes issue with deprecated render key and adds -- prefix to CSS prop name
+
 ## 3.1.0
 
 ### Minor Changes
