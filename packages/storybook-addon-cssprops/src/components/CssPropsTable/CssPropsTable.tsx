@@ -90,7 +90,7 @@ const mergeCustomPropertiesWithStoredPropertiesAndFormatForArgsTable = ({
   const updatedCustomProperties: CssPropertyItemGroup = { ...customProperties };
   Object.keys(customProperties).forEach((key) => {
     if (storageProperties[key]) {
-      updatedCustomProperties[key].value = storageProperties[key];
+      updatedCustomProperties[key].value = updatedCustomProperties[key].denormalize ? updatedCustomProperties[key].denormalize!(storageProperties[key]) : storageProperties[key];
     }
   });
   return formatForArgsTable({
@@ -178,7 +178,7 @@ export const CssPropsTable = ({
     const newProperties = {} as CustomPropertiesKeyValues;
 
     Object.keys(args).forEach((key) => {
-      newProperties[key] = args[key];
+      newProperties[key] = customProperties[key].normalize ? customProperties[key].normalize!(args[key]) : args[key];
     });
     const mergedProperties = {
       ...storedProperties.customProperties[storyId],
