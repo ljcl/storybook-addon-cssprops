@@ -1,19 +1,20 @@
 import { FC } from "react";
-import { FullExtractResult } from "custom-property-extract/dist/types";
+import { useParameter } from "@storybook/api";
+import { CssPropsParam, PARAM_KEY } from "../constants";
 import { CssPropsTable } from "./CssPropsTable";
 import { NoCustomPropertiesWarning } from "./NoCustomPropertiesWarning";
-import { useParameter } from "@storybook/api";
-import { PARAM_KEY } from "../constants";
 import { hasEntries } from "./utils";
 
 /**
  * Used by the Storybook Addons Panel
  */
 export const CssPropsPanel: FC = () => {
-  const cssprops = useParameter<FullExtractResult>(PARAM_KEY, {});
+  const cssprops = useParameter<CssPropsParam>(PARAM_KEY, {
+    customProperties: {},
+  });
 
-  return hasEntries(cssprops) ? (
-    <CssPropsTable customProperties={cssprops} inAddonPanel={true} />
+  return hasEntries(cssprops.customProperties) ? (
+    <CssPropsTable {...cssprops} inAddonPanel={true} />
   ) : (
     <NoCustomPropertiesWarning />
   );

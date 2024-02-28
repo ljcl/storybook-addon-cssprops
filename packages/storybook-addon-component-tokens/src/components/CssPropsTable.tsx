@@ -1,8 +1,9 @@
 import { FC, useMemo, useState } from "react";
-import { FullExtractResult } from "custom-property-extract/dist/types";
+import { FullCustomPropertyValue } from "custom-property-extract/dist/types";
 import { components, Placeholder } from "@storybook/components";
 import { PureArgsTable } from "@storybook/blocks";
 import { ArgTypes, Args } from "@storybook/types";
+import { CssPropsParam, Group } from "../constants";
 import { isValidColor } from "./utils";
 import {
   resetStorage,
@@ -13,37 +14,45 @@ import { useInjectStyle } from "./useInjectStyle";
 
 const ResetWrapper = components.resetwrapper;
 
-interface CssPropsTableProps {
-  customProperties: FullExtractResult;
-  inAddonPanel?: boolean;
-}
+type CssPropsTableProps = Partial<CssPropsParam> & { inAddonPanel?: boolean };
+
+const groupBySelector: Group = ({
+  name,
+  media,
+  selector,
+}: FullCustomPropertyValue) => ({
+  label: `${name}${media ? ` @ ${media}` : ""}`,
+  category: selector,
+});
 
 export const CssPropsTable: FC<CssPropsTableProps> = ({
   customProperties = {},
+  group = groupBySelector,
   inAddonPanel,
 }) => {
   const customPropertiesJSON = JSON.stringify(customProperties);
   const { rows, initialArgs, argsKeys } = useMemo(
     () =>
       Object.entries(customProperties).reduce(
-        (prev, [key, values]) => {
+        (prev, [name, values]) => {
           values.forEach((item) => {
             if (!item.selector) return;
-            const argKey = `${item.selector.trim()}/${key.trim()}${
+            const argKey = `${item.selector.trim()}/${name.trim()}${
               item.media ? `/${item.media}` : ""
             }`;
             prev.argsKeys.push(argKey);
+
+            const { label, ...table } = group({ name, ...item });
             prev.rows[argKey] = {
               control: { type: isValidColor(item.value) ? "color" : "text" },
               defaultValue: item.value,
-              name: `${key}${item.media ? ` @ ${item.media}` : ""}`,
-              table: {
-                category: item.selector,
-              },
+              name: label,
+              table,
               description: item.name,
               key: argKey,
               type: { name: "string" },
             };
+
             prev.initialArgs[argKey] = item.value;
           });
           return prev;
@@ -54,7 +63,7 @@ export const CssPropsTable: FC<CssPropsTableProps> = ({
           argsKeys: [] as string[],
         },
       ),
-    [customPropertiesJSON],
+    [customPropertiesJSON, group],
   );
 
   const [prevProps, setPrevProps] = useState(customPropertiesJSON);

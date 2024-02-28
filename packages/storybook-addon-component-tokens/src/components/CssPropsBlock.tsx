@@ -1,22 +1,20 @@
 import { FC } from "react";
 import { useOf, Of } from "@storybook/addon-docs";
-import { FullExtractResult } from "custom-property-extract/dist/types";
+import { PARAM_KEY, CssPropsParam } from "../constants";
 import { CssPropsTable } from "./CssPropsTable";
 import { hasEntries } from "./utils";
 
-interface CssPropsBlockProps {
-  of?: Of;
-  customProperties?: FullExtractResult;
-}
+type CssPropsBlockProps = Partial<CssPropsParam> & { of?: Of };
 
 /**
  * For use inside Storybook Docs and MDX
  */
-export const CssPropsBlock: FC<CssPropsBlockProps> = (props) => {
-  let cssprops: FullExtractResult = {};
-
+export const CssPropsBlock: FC<CssPropsBlockProps> = ({
+  of = "meta",
+  ...cssprops
+}) => {
   try {
-    const resolvedOf = useOf(props.of || "meta");
+    const resolvedOf = useOf(of);
     const { parameters = {} } =
       resolvedOf.type === "meta"
         ? resolvedOf.csfFile.meta
@@ -25,12 +23,13 @@ export const CssPropsBlock: FC<CssPropsBlockProps> = (props) => {
         : resolvedOf.type === "component"
         ? resolvedOf.projectAnnotations
         : {};
-    cssprops = { ...parameters.cssprops };
+
+    if (parameters[PARAM_KEY]) {
+      cssprops = parameters[PARAM_KEY];
+    }
   } catch (error) {}
 
-  cssprops = props.customProperties || cssprops;
-
-  return hasEntries(cssprops) ? (
-    <CssPropsTable customProperties={cssprops} inAddonPanel={false} />
+  return hasEntries(cssprops.customProperties) ? (
+    <CssPropsTable {...cssprops} inAddonPanel={false} />
   ) : null;
 };

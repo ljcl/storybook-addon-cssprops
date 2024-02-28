@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 
-export const hasEntries = (customProperties: { [key: string]: any }) =>
-  !!Object.keys(customProperties).length;
+export const hasEntries = (customProperties?: { [key: string]: any }) =>
+  !!(customProperties && Object.keys(customProperties).length);
 
 // https://www.regextester.com/103656
 const colorRe =

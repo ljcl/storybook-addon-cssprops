@@ -60,12 +60,14 @@ export default {
   title: "Simple Component",
   parameters: {
     cssprops: {
-      "--color-primary": [
-        {
-          value: "#ff017d",
-          selector: ":root"
-        }
-      ]
+      customProperties: {
+        "--color-primary": [
+          {
+            value: "#ff017d",
+            selector: ":root"
+          }
+        ]
+      }
     }
   },
 } as Meta;
