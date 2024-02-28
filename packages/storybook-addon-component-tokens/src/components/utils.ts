@@ -1,7 +1,9 @@
 import { useRef, useEffect } from "react";
+import { FullCustomPropertyValue } from "custom-property-extract/dist/types";
+import { Group } from "../constants";
 
-export const hasEntries = (customProperties: { [key: string]: any }) =>
-  !!Object.keys(customProperties).length;
+export const hasEntries = (customProperties?: { [key: string]: any }) =>
+  !!(customProperties && Object.keys(customProperties).length);
 
 // https://www.regextester.com/103656
 const colorRe =
@@ -34,3 +36,12 @@ export const useDocument = () => {
   }, []);
   return docRef;
 };
+
+export const groupBySelector: Group = ({
+  name,
+  media,
+  selector,
+}: FullCustomPropertyValue) => ({
+  label: `${name}${media ? ` @ ${media}` : ""}`,
+  category: selector,
+});
