@@ -1,3 +1,28 @@
+# (Fri Mar 01 2024)
+
+#### 💥 Breaking Change
+
+- `@kickstartds/storybook-addon-component-tokens@2.0.0`
+  - Add customProperties & group parameter [#27](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/27) ([@lmestel](https://github.com/lmestel))
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump semver from 5.7.1 to 5.7.2 [#26](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/26) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump ip from 2.0.0 to 2.0.1 [#25](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/25) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump axios from 1.4.0 to 1.6.7 [#24](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/24) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump word-wrap from 1.2.3 to 1.2.5 [#23](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/23) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump postcss from 8.4.27 to 8.4.35 [#22](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/22) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump follow-redirects from 1.15.2 to 1.15.5 [#21](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/21) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump @babel/traverse from 7.22.8 to 7.24.0 [#20](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/20) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- build(deps): bump qs from 6.10.1 to 6.11.0 [#19](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/19) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Wed Nov 08 2023)
 
 #### 💥 Breaking Change

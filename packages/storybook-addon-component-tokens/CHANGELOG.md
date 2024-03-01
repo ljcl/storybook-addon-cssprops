@@ -1,3 +1,19 @@
+# v2.0.0 (Fri Mar 01 2024)
+
+#### 💥 Breaking Change
+
+- Add customProperties & group parameter [#27](https://github.com/kickstartDS/storybook-addon-component-tokens/pull/27) ([@lmestel](https://github.com/lmestel))
+
+#### 🐛 Bug Fix
+
+- feat: add customProperties & group parameter ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v1.0.0 (Wed Nov 08 2023)
 
 #### 💥 Breaking Change
