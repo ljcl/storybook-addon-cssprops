@@ -10,8 +10,8 @@ addons.register(ADDON_ID, (api: API) => {
     title: getTitle,
     type: types.PANEL,
     paramKey: PARAM_KEY,
-    render: ({ key, active }) => (
-      <AddonPanel key={key} active={!!active}>
+    render: ({ active }) => (
+      <AddonPanel active={!!active}>
         <CssPropsPanel />
       </AddonPanel>
     ),
