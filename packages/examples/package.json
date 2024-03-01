@@ -1,6 +1,6 @@
 {
   "name": "examples",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
@@ -11,7 +11,7 @@
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@kickstartds/storybook-addon-component-tokens": "^1.0.0",
+    "@kickstartds/storybook-addon-component-tokens": "^2.0.0",
     "@storybook/addon-controls": "^7.1",
     "@storybook/addon-docs": "^7.1",
     "@storybook/addons": "^7.1",
