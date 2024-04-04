@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CssPropsTable } from "./CssPropsTable/CssPropsTable";
 import { NoCustomPropertiesWarning } from "./NoCustomPropertiesWarning";
-import { useParameter } from "@storybook/api";
+import { useParameter } from "@storybook/manager-api";
 import type { CssPropsParametersType } from "./CssPropsTable/types";
 import { PARAM_KEY } from "../constants";
 

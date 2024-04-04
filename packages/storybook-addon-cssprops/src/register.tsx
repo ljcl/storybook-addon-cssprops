@@ -1,13 +1,13 @@
 import * as React from "react";
-import { addons, types } from "@storybook/addons";
+import { addons, types } from "@storybook/manager-api";
 import { AddonPanel } from "@storybook/components";
-import { API } from "@storybook/api";
+import { API } from "@storybook/manager-api";
 import { CssPropsPanel } from "./components/CssPropsPanel";
 import { useTitle } from "./title";
 import { ADDON_ID, PARAM_KEY } from "./constants";
 
 addons.register(ADDON_ID, (api: API) => {
-  addons.addPanel(ADDON_ID, {
+  addons.add(ADDON_ID, {
     title: useTitle,
     type: types.PANEL,
     paramKey: PARAM_KEY,
