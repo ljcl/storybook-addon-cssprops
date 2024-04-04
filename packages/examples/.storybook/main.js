@@ -2,7 +2,12 @@ import { dirname, join } from "path";
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ["../stories"],
-  addons: [getAbsolutePath("@ljcl/storybook-addon-cssprops"), getAbsolutePath("@storybook/addon-docs")],
+  addons: [
+    getAbsolutePath("@ljcl/storybook-addon-cssprops"),
+    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-mdx-gfm"),
+    getAbsolutePath("@storybook/addon-webpack5-compiler-babel"),
+  ],
   framework: {
     name: getAbsolutePath("@storybook/react-webpack5"),
     options: {
