@@ -5,7 +5,6 @@ const config = {
   addons: [
     getAbsolutePath("@ljcl/storybook-addon-cssprops"),
     getAbsolutePath("@storybook/addon-docs"),
-    getAbsolutePath("@storybook/addon-mdx-gfm"),
     getAbsolutePath("@storybook/addon-webpack5-compiler-babel"),
   ],
   framework: {
