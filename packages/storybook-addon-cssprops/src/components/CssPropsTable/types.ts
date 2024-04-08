@@ -4,6 +4,8 @@ export interface CssPropertyItem {
   description?: string;
   category?: string;
   subcategory?: string;
+  normalize?: (value: string) => string;
+  denormalize?: (value: string) => string;
 }
 
 export interface CssPropertyItemGroup {
