@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useParameter } from "@storybook/api";
+import { useParameter } from "@storybook/manager-api";
 import { CssPropsParameter, PARAM_KEY } from "../constants";
 import { CssPropsTable } from "./CssPropsTable";
 import { NoCustomPropertiesWarning } from "./NoCustomPropertiesWarning";

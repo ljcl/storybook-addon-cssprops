@@ -37,11 +37,7 @@ export const useDocument = () => {
   return docRef;
 };
 
-export const groupBySelector: Group = ({
-  name,
-  media,
-  selector,
-}: FullCustomPropertyValue) => ({
-  label: `${name}${media ? ` @ ${media}` : ""}`,
-  category: selector,
-});
+export const groupBySelector: Group = {
+  label: "{{name}}{{#if media}} @ {{media}}{{/if}}",
+  category: "{{selector}}",
+};

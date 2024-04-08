@@ -1,4 +1,4 @@
-import { useParameter } from "@storybook/api";
+import { useParameter } from "@storybook/manager-api";
 import { CssPropsParameter, PARAM_KEY } from "./constants";
 
 export function getTitle(): string {

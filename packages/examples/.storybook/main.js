@@ -1,13 +1,11 @@
 import { dirname, join } from "path";
 module.exports = {
-  stories: [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.{js,jsx,ts,tsx}",
-  ],
+  stories: ["../stories/**/*.mdx", "../stories/**/*.stories.{js,jsx,ts,tsx}"],
   addons: [
     getAbsolutePath("@kickstartds/storybook-addon-component-tokens"),
     getAbsolutePath("@storybook/addon-docs"),
     getAbsolutePath("@storybook/addon-controls"),
+    getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-webpack5"),

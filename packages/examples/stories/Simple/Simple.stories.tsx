@@ -29,8 +29,8 @@ export const DefaultGroup: StoryObj = {
 export const FlatGroup: StoryObj = {
   parameters: {
     cssprops: {
-      group({ name, media, selector }) {
-        return { label: `${name} @ ${selector}${media ? ` ${media}` : ""}` };
+      group: {
+        label: "{{name}} @ {{selector}}{{#if media}} {{media}}{{/if}}",
       },
     },
   },
@@ -38,12 +38,10 @@ export const FlatGroup: StoryObj = {
 export const SubcategoryGroup: StoryObj = {
   parameters: {
     cssprops: {
-      group({ name, media, selector }) {
-        return {
-          label: media || "default",
-          category: selector,
-          subcategory: name,
-        };
+      group: {
+        label: "{{#if media}}{{media}}{{else}}default{{/if}}",
+        category: "{{selector}}",
+        subcategory: "{{name}}",
       },
     },
   },

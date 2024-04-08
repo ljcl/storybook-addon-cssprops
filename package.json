@@ -7,11 +7,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@kickstartds/auto-config": "^1.1.2",
-    "auto": "^10.46.0",
-    "concurrently": "^8.2.0",
-    "lerna": "^7.1.4",
-    "prettier": "^3.0.0"
+    "@kickstartds/auto-config": "^1.2.0",
+    "auto": "^11.1.6",
+    "concurrently": "^8.2.2",
+    "lerna": "^8.1.2",
+    "prettier": "^3.2.5"
   },
   "scripts": {
     "build": "yarn workspace @kickstartds/storybook-addon-component-tokens build",

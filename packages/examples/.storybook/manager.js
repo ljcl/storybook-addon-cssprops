@@ -1,4 +1,4 @@
-import { addons } from "@storybook/addons";
+import { addons } from "@storybook/manager-api";
 import { create } from "@storybook/theming";
 
 import pkg from "@kickstartds/storybook-addon-component-tokens/package.json";

@@ -19,10 +19,10 @@ export const CssPropsBlock: FC<CssPropsBlockProps> = ({
       resolvedOf.type === "meta"
         ? resolvedOf.csfFile.meta
         : resolvedOf.type === "story"
-        ? resolvedOf.story
-        : resolvedOf.type === "component"
-        ? resolvedOf.projectAnnotations
-        : {};
+          ? resolvedOf.story
+          : resolvedOf.type === "component"
+            ? resolvedOf.projectAnnotations
+            : {};
 
     if (parameters[PARAM_KEY]) {
       cssprops = parameters[PARAM_KEY];
