@@ -1,5 +1,13 @@
 # examples
 
+## 0.5.0
+
+### Minor Changes
+
+- fb1f6e99: Storybook 8 support
+
+  Storybook has made some major changes to its API and as a result support for Storybook 7 and below has been dropped.
+
 ## 0.4.0
 
 ### Minor Changes

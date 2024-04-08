@@ -1,5 +1,13 @@
 # @ljcl/storybook-addon-cssprops
 
+## 4.0.0
+
+### Major Changes
+
+- fb1f6e99: Storybook 8 support
+
+  Storybook has made some major changes to its API and as a result support for Storybook 7 and below has been dropped.
+
 ## 3.2.0
 
 ### Minor Changes
