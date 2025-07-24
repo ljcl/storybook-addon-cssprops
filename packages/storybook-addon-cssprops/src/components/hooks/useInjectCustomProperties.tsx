@@ -4,27 +4,26 @@ import { CustomPropertiesKeyValues } from "../CssPropsTable/types";
 function o2s(style: React.CSSProperties) {
   let string = "";
   Object.keys(style).forEach(function (a) {
-    // @ts-ignore
-    string += `${a}: ${style[a]};`;
+    string += `${a}: ${style[a as keyof React.CSSProperties]};`;
   });
   return string;
 }
 
 export const useInjectCustomProperties = (
-  customProperties: CustomPropertiesKeyValues = {}
+  customProperties: CustomPropertiesKeyValues = {},
 ) => {
   const styles = Object.keys(customProperties)
     .filter((i) => customProperties[i])
     .reduce(
       (o, key) => ({ ...o, [`--${key}`]: customProperties[key] }),
-      {}
+      {},
     ) as React.CSSProperties;
 
   const previewRef = React.useRef<Document | undefined>(undefined);
 
   React.useLayoutEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>(
-      "#storybook-preview-iframe"
+      "#storybook-preview-iframe",
     );
     if (iframe) {
       previewRef.current = iframe?.contentWindow?.document;

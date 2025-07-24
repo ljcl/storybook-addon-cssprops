@@ -21,9 +21,9 @@ interface UseLocalStorage<T> {
 function serializeJSON<T>(value: T) {
   try {
     return JSON.stringify(value);
-  } catch (error) {
+  } catch {
     throw new Error(
-      "[storybook-addon-cssprops]: Failed to serialize the value"
+      "[storybook-addon-cssprops]: Failed to serialize the value",
     );
   }
 }
@@ -48,7 +48,7 @@ export function useLocalStorage<T = string>({
       "localStorage" in window &&
       !getInitialValueInEffect
       ? deserialize(window.localStorage.getItem(key) ?? undefined)
-      : ((defaultValue ?? "") as T)
+      : ((defaultValue ?? "") as T),
   );
 
   const setLocalStorageValue = useCallback(
@@ -64,7 +64,7 @@ export function useLocalStorage<T = string>({
         setValue(val);
       }
     },
-    [key, serialize]
+    [key, serialize],
   );
 
   useWindowEvent("storage", (event) => {
@@ -83,7 +83,7 @@ export function useLocalStorage<T = string>({
     if (getInitialValueInEffect) {
       setValue(
         deserialize(window.localStorage.getItem(key) ?? undefined) ||
-          ((defaultValue ?? "") as T)
+          ((defaultValue ?? "") as T),
       );
     }
   }, [defaultValue, deserialize, getInitialValueInEffect, key]);
