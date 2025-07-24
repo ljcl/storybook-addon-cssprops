@@ -20,7 +20,7 @@ export const useInjectCustomProperties = (
       {}
     ) as React.CSSProperties;
 
-  const previewRef = React.useRef<Document | undefined>();
+  const previewRef = React.useRef<Document | undefined>(undefined);
 
   React.useLayoutEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>(

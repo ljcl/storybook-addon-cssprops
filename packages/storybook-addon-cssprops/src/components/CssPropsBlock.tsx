@@ -5,7 +5,7 @@ import { DocsContext } from "@storybook/addon-docs/blocks";
 import { PreparedStory, Renderer } from "storybook/internal/types";
 
 interface CssPropsBlockProps {
-  customProperties: CssPropertyItemGroup;
+  customProperties?: CssPropertyItemGroup;
 }
 
 declare global {

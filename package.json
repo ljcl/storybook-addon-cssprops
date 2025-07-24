@@ -10,14 +10,13 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.23.0",
-    "concurrently": "^7.2.2",
-    "eslint": "^8.17.0",
+    "@changesets/cli": "^2.29.5",
+    "eslint": "^8.57.1",
     "eslint-config-react-app": "^7.0.1",
-    "only-allow": "^1.1.0",
-    "prettier": "^2.7.1",
+    "only-allow": "^1.2.1",
+    "prettier": "^2.8.8",
     "rimraf": "^3.0.2",
-    "turbo": "latest"
+    "turbo": "^2.5.5"
   },
   "scripts": {
     "preinstall": "npx -y only-allow pnpm",
@@ -28,12 +27,7 @@
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile && git add .",
     "ci:publish": "pnpm build && changeset publish",
     "build": "turbo run build --filter=!examples",
-    "dev": "turbo run dev --no-cache --parallel --continue"
+    "dev": "turbo run dev --continue"
   },
-  "packageManager": "pnpm@7.30.5",
-  "pnpm": {
-    "overrides": {
-      "webpack": "^5"
-    }
-  }
+  "packageManager": "pnpm@9.13.2"
 }
