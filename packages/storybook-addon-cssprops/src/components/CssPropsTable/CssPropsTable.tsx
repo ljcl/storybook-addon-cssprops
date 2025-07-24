@@ -14,7 +14,7 @@ export interface CssPropsTableProps {
 }
 
 const reduceCssPropertyItemGroupToValue = (
-  customProperties: CssPropertyItemGroup
+  customProperties: CssPropertyItemGroup,
 ) => {
   const newParams: CustomPropertiesKeyValues = {};
   Object.keys(customProperties).forEach((key) => {
@@ -169,7 +169,7 @@ export const CssPropsTable = ({
       presetColors,
       storyId,
       initialCustomProperties: storedProperties.initialCustomProperties,
-    })
+    }),
   );
 
   const handleUpdateStorage = (args: CustomPropertiesKeyValues) => {

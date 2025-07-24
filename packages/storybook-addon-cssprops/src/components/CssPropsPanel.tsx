@@ -11,7 +11,7 @@ import { PARAM_KEY } from "../constants";
 export const CssPropsPanel = ({ storyId }: { storyId: string }) => {
   const cssprops = useParameter<CssPropsParametersType>(PARAM_KEY, {});
 
-  const { presetColors, disable, ...customProperties } = cssprops;
+  const { presetColors, ...customProperties } = cssprops;
 
   const hasCustomProperties = Object.values(customProperties).length > 0;
 
