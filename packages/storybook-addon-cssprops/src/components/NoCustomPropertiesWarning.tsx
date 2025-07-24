@@ -1,6 +1,6 @@
 import * as React from "react";
-import { styled } from "@storybook/theming";
-import { Link } from "@storybook/components";
+import { styled } from "storybook/theming";
+import { Link } from "storybook/internal/components";
 
 const NoCustomPropertiesWrapper = styled.div(({ theme }) => ({
   background: theme.background.app,

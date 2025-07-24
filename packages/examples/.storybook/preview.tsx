@@ -7,8 +7,7 @@ import {
   Primary,
   Controls,
   Stories,
-  PRIMARY_STORY,
-} from "@storybook/addon-docs";
+} from "@storybook/addon-docs/blocks";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
 const parameters = {
@@ -21,7 +20,7 @@ const parameters = {
           <Subtitle />
           <Description />
           <Primary />
-          <Controls story={PRIMARY_STORY} />
+          <Controls />
           <CssPropsBlock />
           <Stories />
         </>
@@ -50,9 +49,10 @@ const parameters = {
   },
 };
 
-/** @type { import('@storybook/react').Preview } */
+/** @type { import('@storybook/react-vite').Preview } */
 const preview = {
   parameters,
+  tags: ["autodocs"],
 };
 
 export default preview;

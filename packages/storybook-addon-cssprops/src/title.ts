@@ -1,4 +1,4 @@
-import { useParameter } from "@storybook/manager-api";
+import { useParameter } from "storybook/manager-api";
 import { PARAM_KEY } from "./constants";
 import { CssPropertyItemGroup } from "./components/CssPropsTable/types";
 

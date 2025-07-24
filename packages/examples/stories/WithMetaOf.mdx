@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import * as SimpleStories from "./WithCustomProperties.stories";
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import cssprops from "./testData";
+
+<Meta of={SimpleStories} />
+
+# MDX with `<Meta of={Stories}/>`
+
+When populating the Meta component with stories, `CssPropsBlock` will find and use associated CSS Custom Properties.
+
+```tsx
+import * as SimpleStories from "./Simple.stories";
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+
+<Meta of={SimpleStories} />
+
+<CssPropsBlock />
+
+<Canvas of={SimpleStories.DefaultStory}></Canvas>
+```
+
+<CssPropsBlock />
+
+<Canvas of={SimpleStories.DefaultStory}></Canvas>
+
+<Canvas of={SimpleStories.SecondaryStory}></Canvas>

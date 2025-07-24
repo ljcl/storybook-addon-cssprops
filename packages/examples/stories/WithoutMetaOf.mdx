@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import * as SimpleStories from "./WithCustomProperties.stories";
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import cssprops from "./testData";
+
+<Meta title="With Custom Properties/WithoutMetaOf" />
+
+# MDX without `<Meta />`
+
+Importing `CssPropsBlock` and manually configuring `customProperties` directly in MDX.
+
+```tsx
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+
+<CssPropsBlock customProperties={cssprops.primary} />
+
+<Canvas of={SimpleStories.DefaultStory}></Canvas>
+```
+
+<CssPropsBlock customProperties={cssprops.primary} />
+
+Which surfaces the properties in our stories:
+
+<Canvas of={SimpleStories.DefaultStory}></Canvas>
+

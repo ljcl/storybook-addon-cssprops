@@ -1,6 +1,6 @@
 import * as React from "react";
-import { PureArgsTable } from "@storybook/blocks";
-import type { ArgTypes } from "@storybook/types";
+import { PureArgsTable } from "@storybook/addon-docs/blocks";
+import type { ArgTypes } from "storybook/internal/types";
 import { useInjectCustomProperties } from "../hooks/useInjectCustomProperties";
 import { CssPropertyItemGroup, CustomPropertiesKeyValues } from "./types";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -60,9 +60,7 @@ const formatForArgsTable = ({
       table: {
         category: customProperty.category,
         subcategory: customProperty.subcategory,
-        // Hack:
-        // ArgValue/ArgsSummary is looking for an object here, not a string
-        // trick it into returning null rather than a <span>-</span>
+        // @ts-expect-error - Hack: ArgValue/ArgsSummary looks for an object here, not a string. Trick it into returning null rather than a <span>-</span>
         type: "CSS Custom Property",
         defaultValue: {
           summary: initialCustomProperty,
