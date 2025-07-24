@@ -1,8 +1,8 @@
 import * as React from "react";
 import { CssPropsTable } from "./CssPropsTable/CssPropsTable";
 import type { CssPropertyItemGroup } from "./CssPropsTable/types";
-import { DocsContext } from "@storybook/blocks";
-import { PreparedStory, Renderer } from "@storybook/types";
+import { DocsContext } from "@storybook/addon-docs/blocks";
+import { PreparedStory, Renderer } from "storybook/internal/types";
 
 interface CssPropsBlockProps {
   customProperties: CssPropertyItemGroup;

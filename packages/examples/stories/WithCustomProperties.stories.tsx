@@ -1,6 +1,6 @@
 import * as React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Swatch } from "../Swatch";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Swatch } from "./Swatch";
 import cssprops from "./testData";
 
 const Swatches = ({ cssprops }) => (
@@ -20,7 +20,7 @@ const Swatches = ({ cssprops }) => (
 );
 
 export default {
-  title: "Simple Component/CSF",
+  title: "With Custom Properties",
   component: Swatch,
   parameters: {
     cssprops: cssprops.primary,
