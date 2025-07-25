@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CssPropsTable } from "./CssPropsTable/CssPropsTable";
-import type { CssPropertyItemGroup } from "./CssPropsTable/types";
+import type { CssPropertyItemGroup, CssPropsParametersType } from "./CssPropsTable/types";
 import { DocsContext } from "@storybook/addon-docs/blocks";
 import { PreparedStory, Renderer } from "storybook/internal/types";
 
@@ -36,7 +36,7 @@ export const CssPropsBlock: React.FC<CssPropsBlockProps> = (props) => {
 
   const cssprops = {
     ...primaryStory?.parameters?.cssprops,
-  };
+  } as CssPropsParametersType;
 
   const { presetColors, disable, ...restProperties } = cssprops;
 
