@@ -1,5 +1,17 @@
 # @ljcl/storybook-addon-cssprops
 
+## 5.0.0
+
+### Major Changes
+
+- f205063: Update package dependencies
+- d698aaa: Storybook has made some major changes to its API and as a result support for Storybook 8 and below has been dropped.
+
+### Minor Changes
+
+- cf4d509: React 19
+- cb4426c: Update eslint and prettier, lint all
+
 ## 4.0.0
 
 ### Major Changes
