@@ -1,0 +1,26 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  CI: true
+
+jobs:
+  validate:
+    name: Build and Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: "Install PNPM, Node.js, and dependencies"
+        uses: ./.github/actions/install-deps
+
+      - name: Build
+        run: pnpm build
+
+      - name: Lint
+        run: pnpm lint
