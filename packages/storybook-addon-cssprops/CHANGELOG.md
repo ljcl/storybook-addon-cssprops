@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 5.0.1
+
+### Patch Changes
+
+- 33b7a0f: Fix type error in CssPropsBlock.tsx
+
 ## 5.0.0
 
 ### Major Changes
