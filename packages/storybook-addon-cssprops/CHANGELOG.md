@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 5.0.2
+
+### Patch Changes
+
+- d7dc806: Fix storybook crash when visiting a story directly
+
 ## 5.0.1
 
 ### Patch Changes
