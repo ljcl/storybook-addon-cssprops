@@ -15,7 +15,7 @@ addons.register(ADDON_ID, (api: API) => {
       const story = api.getCurrentStoryData();
       return (
         <AddonPanel active={!!active}>
-          <CssPropsPanel storyId={story.id} />
+          <CssPropsPanel storyId={story?.id} />
         </AddonPanel>
       );
     },
