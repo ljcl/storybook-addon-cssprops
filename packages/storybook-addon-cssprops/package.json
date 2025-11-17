@@ -3,7 +3,7 @@
   "version": "5.0.2",
   "description": "Interact with css custom properties dynamically in the Storybook UI",
   "keywords": [
-    "storybook-addons",
+    "storybook-addon",
     "style",
     "design",
     "CSS",
@@ -16,7 +16,6 @@
   "repository": "https://github.com/ljcl/storybook-addon-cssprops.git",
   "author": "Luke Clark <luke@lukeclark.com.au>",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "files": [
@@ -42,24 +41,22 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-docs": "^9.0.18",
+    "@storybook/addon-docs": "^10.0.8",
     "@types/node": "^22.16.5",
     "@types/react": "^19.1.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "rimraf": "^6.0.1",
-    "storybook": "^9.0.18",
+    "storybook": "^10.0.8",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "storybook": "^9.0.0"
+    "storybook": "^10.0.0"
   },
   "scripts": {
     "dev": "tsc --watch --preserveWatchOutput",
-    "build": "pnpm build:esm && pnpm build:cjs",
-    "build:esm": "tsc",
+    "build": "tsc",
     "lint": "eslint src",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "clean": "rimraf .turbo && rimraf dist",
     "prepublishOnly": "pnpm run clean && cp ../../README.md ./ && cp -r ../../assets ./ && pnpm build"
   },
