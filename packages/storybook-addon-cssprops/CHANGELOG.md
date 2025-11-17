@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 6.0.0
+
+### Major Changes
+
+- 2b690f0: Storybook is now ESM only and as a result support for Storybook 9 and below has been dropped.
+
 ## 5.0.2
 
 ### Patch Changes
