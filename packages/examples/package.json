@@ -10,6 +10,7 @@
     "@ljcl/storybook-addon-cssprops": "workspace:*",
     "@storybook/addon-docs": "^10.0.8",
     "@storybook/react-vite": "^10.0.8",
+    "@types/react": "^19.1.8",
     "rimraf": "^6.0.1",
     "storybook": "^10.0.8"
   },

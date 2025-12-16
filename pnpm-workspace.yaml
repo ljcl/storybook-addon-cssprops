@@ -1,2 +1,6 @@
 packages:
   - "packages/*"
+
+publishBranch: main
+strictPeerDependencies: false
+autoInstallPeers: true

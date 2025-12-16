@@ -63,6 +63,6 @@ Descriptions can be as long as you need and are formatted as markdown, just like
       description: "This story parameter overrides the parent",
     },
   },
-};
+} as const;
 
 export default cssprops;
