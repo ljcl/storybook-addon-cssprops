@@ -1,5 +1,11 @@
 # @ljcl/storybook-addon-cssprops
 
+## 6.1.0
+
+### Minor Changes
+
+- e93be8a: Support CSF Factories
+
 ## 6.0.0
 
 ### Major Changes
