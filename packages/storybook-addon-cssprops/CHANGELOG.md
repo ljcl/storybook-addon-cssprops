@@ -1,5 +1,12 @@
 # @ljcl/storybook-addon-cssprops
 
+## 6.1.1
+
+### Patch Changes
+
+- 0be5dab: Fix release workflow permissions
+- d769699: move @storybook/icons to a dependency
+
 ## 6.1.0
 
 ### Minor Changes
