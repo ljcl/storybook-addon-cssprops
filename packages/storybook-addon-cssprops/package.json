@@ -60,9 +60,11 @@
       "react-native"
     ]
   },
+  "dependencies": {
+    "@storybook/icons": "^2.0.1"
+  },
   "devDependencies": {
     "@storybook/addon-docs": "^10.0.8",
-    "@storybook/icons": "^2.0.1",
     "@types/node": "^22.16.5",
     "@types/react": "^19.1.8",
     "react": "^19.1.0",
