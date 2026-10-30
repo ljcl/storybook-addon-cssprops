@@ -26,6 +26,10 @@ jobs:
       - name: "Install PNPM, Node.js, and dependencies"
         uses: ./.github/actions/install-deps
 
+      # Trusted publishing (OIDC) needs npm 11.5.1+
+      - name: Upgrade npm
+        run: npm install -g npm@^11.5.1
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -35,4 +39,3 @@ jobs:
           publish: pnpm ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
